@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Saran Kaba — Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:       #0f0f0f;
+      --surface:  #1a1a1a;
+      --card:     #222222;
+      --border:   #2e2e2e;
+      --text:     #e8e8e8;
+      --muted:    #888888;
+      --accent:   #c0c0c0;
+      --white:    #ffffff;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(15,15,15,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 3rem;
+    }
+    .nav-name { font-weight: 700; font-size: 1rem; letter-spacing: 0.05em; color: var(--white); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 6rem 3rem 4rem;
+      max-width: 1100px; margin: 0 auto;
+      gap: 5rem;
+    }
+    .hero-text { flex: 1; }
+    .hero-tag {
+      display: inline-block;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.08em;
+    }
+    .hero-name {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .hero-title {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--text);
+      max-width: 480px;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--white);
+      color: var(--bg);
+      padding: 0.75rem 1.8rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.75rem 1.8rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--accent); }
+
+    .hero-photo {
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--border);
+      flex-shrink: 0;
+      filter: grayscale(20%);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 3rem; max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 3rem;
+    }
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 3rem;
+    }
+
+    /* ── PROJET CARD ── */
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+    .project-header {
+      padding: 2rem 2.5rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .project-number {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .project-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .tag {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+    }
+    .project-body { padding: 2rem 2.5rem; }
+    .project-desc {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      max-width: 700px;
+    }
+    .project-points { list-style: none; margin-bottom: 2rem; }
+    .project-points li {
+      padding: 0.4rem 0;
+      color: var(--text);
+      font-size: 0.9rem;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .project-points li::before {
+      content: "–";
+      position: absolute; left: 0;
+      color: var(--muted);
+    }
+
+    /* ── IMAGES GRID ── */
+    .img-grid { display: grid; gap: 1rem; margin-top: 1.5rem; }
+    .img-grid-2 { grid-template-columns: 1fr 1fr; }
+    .img-grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .img-grid img {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      object-fit: cover;
+    }
+    .img-caption {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 0.4rem;
+    }
+
+    /* ── COMPÉTENCES ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-group {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .skill-group h3 {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .skill-group ul { list-style: none; }
+    .skill-group li {
+      font-size: 0.85rem;
+      color: var(--text);
+      padding: 0.3rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .skill-group li:last-child { border-bottom: none; }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .contact-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .contact-item:hover { border-color: var(--accent); }
+    .contact-label { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.3rem; }
+    .contact-value { font-size: 0.9rem; color: var(--white); font-weight: 500; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .hero { flex-direction: column-reverse; gap: 2rem; text-align: center; }
+      .hero-btns { justify-content: center; }
+      .hero-photo { width: 180px; height: 180px; }
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1rem; }
+      section { padding: 3rem 1.5rem; }
+      .img-grid-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-name">Saran Kaba</span>
+  <ul class="nav-links">
+    <li><a href="#projets">Projets</a></li>
+    <li><a href="#competences">Compétences</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-text">
+    <span class="hero-tag">Disponible · Stage Master 2 · Mars 2027</span>
+    <h1 class="hero-name">Saran Kaba</h1>
+    <p class="hero-title">Signal · Image · Apprentissage Automatique</p>
+    <p class="hero-desc">
+      Étudiante en Master SIA2 à l'Université Toulouse III Paul Sabatier.
+      Je travaille sur des projets en traitement d'images, machine learning
+      et analyse de signaux. Je recherche un stage de fin de Master 2.
+    </p>
+    <div class="hero-btns">
+      <a href="#projets" class="btn-primary">Voir mes projets</a>
+      <a href="#contact" class="btn-outline">Me contacter</a>
+    </div>
+  </div>
+  <img src="photo.jpg" alt="Saran Kaba" class="hero-photo" />
+</div>
+
+<hr class="divider" />
+
+<!-- PROJETS -->
+<section id="projets">
+  <p class="section-label">Master SIA2 — 2025–2026</p>
+  <h2 class="section-title">Projets Réalisés</h2>
+
+  <!-- PROJET 1 : TUMEURS -->
+  <div class="project-card">
+    <div class="project-header">
+      <p class="project-number">Projet 01</p>
+      <h3 class="project-title">Classification d'IRM cérébrales — Détection de tumeurs</h3>
+      <p class="project-meta">Python · Deep Learning · 2025–2026</p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">TensorFlow</span>
+        <span class="tag">Keras</span>
+        <span class="tag">VGG16</span>
+        <span class="tag">CNN</span>
+        <span class="tag">Transfer Learning</span>
+      </div>
+    </div>
+    <div class="project-body">
+      <p class="project-desc">
+        Et si l'intelligence artificielle pouvait aider les médecins à détecter des tumeurs
+        cérébrales plus rapidement ? Nous avons développé et comparé trois approches d'IA
+        appliquées à des images IRM, atteignant une précision de <strong>91,37%</strong>
+        dans la classification de 4 types de tumeurs cérébrales.
+      </p>
+      <ul class="project-points">
+        <li>Conception et comparaison de 3 architectures : CNN de base, VGG16 Feature Extraction, VGG16 Fine Tuning + Data Augmentation</li>
+        <li>Classification en 4 catégories : Gliome, Méningiome, Normal, Tumeur hypophysaire</li>
+        <li>Visualisation des filtres et cartes de caractéristiques pour l'interprétabilité en imagerie médicale</li>
+        <li>Techniques : Dropout, BatchNormalization, EarlyStopping, SGD</li>
+      </ul>
+
+      <div class="img-grid img-grid-4">
+        <div>
+          <img src="irm_exemples.png" alt="Exemples IRM" />
+          <p class="img-caption">Exemples d'images IRM par classe</p>
+        </div>
+        <div>
+          <img src="matrice_confusion.png" alt="Matrice de confusion" />
+          <p class="img-caption">Matrice de confusion — VGG16 Fine Tuning</p>
+        </div>
+        <div>
+          <img src="courbe_accuracy.png" alt="Courbe Accuracy" />
+          <p class="img-caption">Courbe Accuracy</p>
+        </div>
+        <div>
+          <img src="courbe_loss.png" alt="Courbe Loss" />
+          <p class="img-caption">Courbe Loss</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJET 2 : SLIC -->
+  <div class="project-card">
+    <div class="project-header">
+      <p class="project-number">Projet 02</p>
+      <h3 class="project-title">Segmentation en superpixels — Algorithme SLIC</h3>
+      <p class="project-meta">MATLAB · Traitement d'images · 2025–2026</p>
+      <div class="tags">
+        <span class="tag">MATLAB</span>
+        <span class="tag">Segmentation</span>
+        <span class="tag">SLIC</span>
+        <span class="tag">Dataset Berkeley</span>
+      </div>
+    </div>
+    <div class="project-body">
+      <p class="project-desc">
+        Traiter une image pixel par pixel c'est long et coûteux. La solution ? Les superpixels !
+        Nous avons implémenté l'algorithme SLIC qui regroupe les pixels en petites régions homogènes,
+        ce qui permet de réduire considérablement le temps de traitement tout en conservant
+        les informations importantes de l'image.
+      </p>
+      <ul class="project-points">
+        <li>Implémentation complète de SLIC depuis l'article original en MATLAB</li>
+        <li>Évaluation quantitative sur le dataset Berkeley BSDS500 : métriques Boundary Recall et ASA</li>
+        <li>Application à des images médicales (IRM), satellitaires et de la vie courante</li>
+        <li>Analyse de l'influence des paramètres k (nombre de superpixels) et m (compacité)</li>
+      </ul>
+      <p style="color: var(--muted); font-size: 0.85rem; font-style: italic;">
+        Images du projet à venir
+      </p>
+    </div>
+  </div>
+
+  <!-- PROJET 3 : LPC -->
+  <div class="project-card">
+    <div class="project-header">
+      <p class="project-number">Projet 03</p>
+      <h3 class="project-title">Analyse spectrale & Codage LPC de la parole</h3>
+      <p class="project-meta">MATLAB · Traitement du signal · 2025–2026</p>
+      <div class="tags">
+        <span class="tag">MATLAB</span>
+        <span class="tag">LPC</span>
+        <span class="tag">FFT</span>
+        <span class="tag">Spectrogramme</span>
+      </div>
+    </div>
+    <div class="project-body">
+      <p class="project-desc">
+        Analyse complète d'un signal de parole en trois phases : analyse spectrale,
+        codage par prédiction linéaire (LPC) et synthèse. Le signal étudié est
+        l'enregistrement du mot "assécher" contenant 5 phonèmes distincts.
+      </p>
+      <ul class="project-points">
+        <li>Analyse temps-fréquence : audiogramme, transformée de Fourier, spectrogrammes bande étroite et large</li>
+        <li>Codage LPC : estimation des coefficients, estimation pitch par autocorrélation</li>
+        <li>Synthèse source-filtre et modification de la période pitch</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PROJET 4 : SEGMENTATION IMAGES -->
+  <div class="project-card">
+    <div class="project-header">
+      <p class="project-number">Projet 04</p>
+      <h3 class="project-title">Segmentation d'images — Traitement & Analyse</h3>
+      <p class="project-meta">MATLAB · Vision par ordinateur · 2025–2026</p>
+      <div class="tags">
+        <span class="tag">MATLAB</span>
+        <span class="tag">NDVI</span>
+        <span class="tag">Seuillage</span>
+        <span class="tag">Morphologie</span>
+      </div>
+    </div>
+    <div class="project-body">
+      <p class="project-desc">
+        Application de techniques de segmentation à trois problèmes réels :
+        estimation de l'état du ciel, extraction de végétation par imagerie
+        satellitaire et identification de piscines par imagerie aérienne.
+      </p>
+      <ul class="project-points">
+        <li>Segmentation du ciel : extraction du soleil et des nuages par seuillage (méthodes R/B et R-B)</li>
+        <li>Extraction de végétation via l'indice NDVI et morphologie mathématique</li>
+        <li>Détection de piscines par imagerie aérienne grâce à la dominance bleue</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- COMPÉTENCES -->
+<section id="competences">
+  <p class="section-label">Outils & Technologies</p>
+  <h2 class="section-title">Compétences</h2>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h3>Machine Learning & IA</h3>
+      <ul>
+        <li>Python</li>
+        <li>TensorFlow / Keras</li>
+        <li>CNN, VGG16</li>
+        <li>Transfer Learning</li>
+        <li>Data Augmentation</li>
+        <li>scikit-learn</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h3>Traitement Signal & Image</h3>
+      <ul>
+        <li>MATLAB</li>
+        <li>Analyse spectrale, FFT</li>
+        <li>Codage LPC</li>
+        <li>Segmentation (SLIC, NDVI)</li>
+        <li>Filtre de Kalman (en cours)</li>
+        <li>Traitement 3D (en cours)</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h3>Systèmes & Réseaux</h3>
+      <ul>
+        <li>Linux (CentOS)</li>
+        <li>Windows Server</li>
+        <li>Administration réseau</li>
+        <li>Nagios</li>
+        <li>Langages C, C++ (en cours)</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h3>Langues</h3>
+      <ul>
+        <li>Français — C2</li>
+        <li>Anglais — B2</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">Me rejoindre</p>
+  <h2 class="section-title">Contact</h2>
+  <div class="contact-grid">
+    <a href="mailto:kabasaran699@gmail.com" class="contact-item">
+      <p class="contact-label">Email</p>
+      <p class="contact-value">kabasaran699@gmail.com</p>
+    </a>
+    <a href="https://www.linkedin.com/in/saran-kaba-32698b330/" target="_blank" class="contact-item">
+      <p class="contact-label">LinkedIn</p>
+      <p class="contact-value">saran-kaba-32698b330</p>
+    </a>
+    <div class="contact-item">
+      <p class="contact-label">Téléphone</p>
+      <p class="contact-value">06 09 60 25 48</p>
+    </div>
+    <div class="contact-item">
+      <p class="contact-label">Localisation</p>
+      <p class="contact-value">Toulouse, France</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Saran Kaba — Portfolio Master SIA2</p>
+</footer>
+
+</body>
+</html>
