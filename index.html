@@ -15,6 +15,7 @@
   --white:#fff;
   --accent:#2457d6;
   --accent-soft:#eef3ff;
+  --rose-pale:#f5f7fb;
   --dark:#111827;
   --dark-2:#1b2535;
 }
@@ -254,6 +255,95 @@ footer span{color:#fff}
   .img-grid.c3{grid-template-columns:1fr 1fr}
   .contact-cards{grid-template-columns:1fr}
 }
+
+/* V3 — polish & motion */
+.topbar{
+  background:#111827;color:#c9d1dc;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  min-height:38px;padding:8px 28px;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  font-size:11px;letter-spacing:.01em;
+}
+.topbar-dot{width:7px;height:7px;border-radius:50%;background:#6ee7b7;box-shadow:0 0 0 4px rgba(110,231,183,.10);flex:0 0 auto}
+.topbar-text{margin:0}
+.topbar-text strong{color:#fff}
+.topbar-link{color:#fff;text-decoration:none;font-weight:700;margin-left:6px}
+.topbar-link:hover{text-decoration:underline}
+
+.hero-text,.hero-right,.project-text,.project-imgs,.contact-inner{
+  opacity:0;transform:translateY(18px);
+  animation:fadeUp .75s ease forwards;
+}
+.hero-right{animation-delay:.12s}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+.page.active .project-block{
+  animation:contentIn .65s ease both;
+}
+.page.active .project-block:nth-child(2){animation-delay:.08s}
+.page.active .project-block:nth-child(3){animation-delay:.16s}
+.page.active .project-block:nth-child(4){animation-delay:.24s}
+@keyframes contentIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+.nav-logo-dot{animation:pulseDot 2.2s ease-in-out infinite}
+@keyframes pulseDot{0%,100%{box-shadow:0 0 0 0 rgba(36,87,214,0)}50%{box-shadow:0 0 0 6px rgba(36,87,214,.10)}}
+
+.btn-rose,.btn-white,.contact-card,.img-main,.img-grid-item,.tag{
+  will-change:transform;
+}
+.btn-rose:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(17,24,39,.14)}
+.btn-white:hover{transform:translateY(-2px)}
+.img-main,.img-grid-item{transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.img-main:hover,.img-grid-item:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(17,24,39,.08);border-color:#cbd3df}
+.tag{transition:background .2s ease,transform .2s ease}
+.tag:hover{background:#e8edf5;transform:translateY(-1px)}
+
+.signal-lab{
+  margin-top:36px;background:#0d1420;border:1px solid #253044;
+  border-radius:12px;overflow:hidden;box-shadow:0 18px 45px rgba(17,24,39,.10)
+}
+.signal-lab-head{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:15px 18px;border-bottom:1px solid #253044;color:#fff
+}
+.signal-lab-title{font-size:12px;font-weight:750;letter-spacing:.08em;text-transform:uppercase}
+.signal-live{font-size:10px;color:#9fe6c4;display:flex;align-items:center;gap:7px}
+.signal-live:before{content:"";width:6px;height:6px;border-radius:50%;background:#6ee7b7;box-shadow:0 0 0 4px rgba(110,231,183,.08)}
+#signalCanvas{display:block;width:100%;height:190px}
+.signal-lab-foot{
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding:11px 18px;color:#8793a6;font-size:10px;border-top:1px solid #253044
+}
+.signal-lab-foot span strong{color:#e8edf5;font-weight:700}
+
+.metric-highlight{
+  display:flex;align-items:baseline;gap:9px;margin-top:20px
+}
+.metric-highlight strong{font-size:34px;letter-spacing:-.04em}
+.metric-highlight span{font-size:11px;color:var(--muted)}
+
+.project-number{
+  font-size:11px;color:#98a2b3;font-weight:750;letter-spacing:.08em;margin-bottom:8px
+}
+
+.lightbox{
+  position:fixed;inset:0;z-index:300;background:rgba(8,12,18,.86);
+  display:none;align-items:center;justify-content:center;padding:30px;
+  backdrop-filter:blur(8px)
+}
+.lightbox.open{display:flex}
+.lightbox img{max-width:min(1100px,94vw);max-height:88vh;object-fit:contain;border-radius:8px;box-shadow:0 25px 70px rgba(0,0,0,.35)}
+.lightbox-close{position:fixed;top:18px;right:24px;color:#fff;font-size:28px;background:none;border:0;cursor:pointer;line-height:1}
+.clickable-img{cursor:zoom-in}
+
+.section-note{
+  max-width:1180px;margin:0 auto;padding:0 28px 70px;color:#7a8494;font-size:11px
+}
+@media(max-width:600px){
+  .topbar{padding:8px 16px;text-align:center}
+  .topbar-link{display:none}
+  #signalCanvas{height:145px}
+}
+
 </style>
 </head>
 <body>
@@ -287,7 +377,7 @@ footer span{color:#fff}
       <div class="hero-text">
         <p class="hero-eyebrow">Master 2 SIA2 · Université Toulouse III Paul Sabatier</p>
         <h1 class="hero-title">Signal, Image<br>&amp; <span class="rose">Machine Learning</span></h1>
-        <p class="hero-desc">Étudiant en Master 2 SIA2, je construis des projets à l'intersection de la vision par ordinateur, du traitement du signal et du machine learning.</p>
+        <p class="hero-desc">En Master 2 SIA2, je construis des projets à l'intersection de la vision par ordinateur, du traitement du signal et du machine learning.</p>
         <div class="hero-btns">
           <a href="#" onclick="showPage('ia')" class="btn-rose">Voir mes projets</a>
           <a href="https://www.linkedin.com/in/saran-kaba-32698b330/" target="_blank" class="btn-white">LinkedIn →</a>
@@ -307,7 +397,7 @@ footer span{color:#fff}
   <div class="stats-bar">
     <div class="stats-inner">
       <div class="stat"><div class="stat-num">91,37%</div><div class="stat-label">Précision détection tumeurs</div></div>
-      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Projets académiques</div></div>
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label">Projets sélectionnés</div></div>
       <div class="stat"><div class="stat-num">3</div><div class="stat-label">Architectures comparées</div></div>
       <div class="stat"><div class="stat-num">2027</div><div class="stat-label">Disponible pour stage</div></div>
     </div>
@@ -328,7 +418,7 @@ footer span{color:#fff}
     <!-- PROJET 1 -->
     <div class="project-block">
       <div class="project-text">
-        <p class="project-eyebrow">Projet · Segmentation par seuillage</p>
+        <div class="project-number">01 / TRAITEMENT D’IMAGES</div><p class="project-eyebrow">Projet · Segmentation par seuillage</p>
         <h3 class="project-title">Du ciel à la terre — trois problèmes, une méthode.</h3>
         <p class="project-desc">Comment distinguer automatiquement les nuages du soleil ? La végétation du sol nu ? Les piscines des toits ? Ce TP répond à ces trois questions réelles avec des techniques de segmentation par analyse de couleur.</p>
         <ul class="project-points">
@@ -356,7 +446,7 @@ footer span{color:#fff}
     <!-- PROJET 2 : SLIC -->
     <div class="project-block reverse">
       <div class="project-text">
-        <p class="project-eyebrow">Projet de recherche · Algorithme SLIC</p>
+        <div class="project-number">02 / TRAITEMENT D’IMAGES</div><p class="project-eyebrow">Projet de recherche · Algorithme SLIC</p>
         <h3 class="project-title">Repenser le pixel — les superpixels.</h3>
         <p class="project-desc">Traiter une image pixel par pixel c'est long et coûteux. La solution ? Regrouper les pixels en petites régions homogènes appelées superpixels, réduisant drastiquement le temps de calcul tout en conservant l'information essentielle.</p>
         <ul class="project-points">
@@ -379,6 +469,33 @@ footer span{color:#fff}
         </div>
       </div>
     </div>
+
+    <!-- PROJET 3 : SEGMENTATION D'IMAGES -->
+    <div class="project-block">
+      <div class="project-text">
+        <div class="project-number">03 / TRAITEMENT D’IMAGES</div>
+        <p class="project-eyebrow">TP · Segmentation et analyse d'images</p>
+        <h3 class="project-title">Extraire l'information utile d'une image.</h3>
+        <p class="project-desc">Application de méthodes de segmentation sur des images aériennes et satellitaires pour détecter des objets ou des zones d'intérêt.</p>
+        <ul class="project-points">
+          <li>Détection du soleil et des nuages par analyse des composantes couleur</li>
+          <li>Extraction de la végétation par indice NDVI et seuillage</li>
+          <li>Détection de piscines par différence entre composantes bleue et rouge</li>
+          <li>Nettoyage des masques par opérations morphologiques</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">MATLAB</span><span class="tag">Segmentation</span><span class="tag">NDVI</span><span class="tag">Seuillage</span><span class="tag">Morphologie</span>
+        </div>
+      </div>
+      <div class="project-imgs">
+        <div class="img-main"><img class="clickable-img" src="vegetation_filtre.png" alt="Végétation extraite"/></div>
+        <div class="img-cap">Extraction de la végétation après segmentation</div>
+        <div class="img-grid c2">
+          <div class="img-grid-item"><img class="clickable-img" src="piscines_rouge.png" alt="Piscines détectées"/><div class="img-cap">Détection des piscines</div></div>
+          <div class="img-grid-item"><img class="clickable-img" src="masque_soleil.png" alt="Masque du soleil"/><div class="img-cap">Extraction du soleil</div></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -394,7 +511,7 @@ footer span{color:#fff}
   <div class="content">
     <div class="project-block">
       <div class="project-text">
-        <p class="project-eyebrow">Projet · Classification d'images médicales</p>
+        <div class="project-number">01 / MACHINE LEARNING</div><p class="project-eyebrow">Projet · Classification d'images médicales</p>
         <h3 class="project-title">Peut-on faire confiance à un modèle pour détecter une tumeur ?</h3>
         <p class="project-desc">Nous avons développé et comparé trois approches de deep learning sur des IRM cérébrales. La question : quel modèle est le plus précis, et comment interpréter ses décisions en contexte médical ?</p>
         <ul class="project-points">
@@ -404,7 +521,7 @@ footer span{color:#fff}
           <li>Visualisation des filtres pour l'interprétabilité médicale</li>
         </ul>
         <div class="tags">
-          <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">VGG16</span><span class="tag">CNN</span><span class="tag">Transfer Learning</span>
+          <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">VGG16</span><span class="tag">CNN</span><span class="tag">Streamlit</span><span class="tag">Transfer Learning</span>
         </div>
         <div class="results-box">
           <p class="results-box-title">Résultats — VGG16 Fine Tuning</p>
@@ -432,6 +549,35 @@ footer span{color:#fff}
   </div>
 </div>
 
+<!-- PROJET 4 : BLOCK MATCHING -->
+<div class="project-block">
+  <div class="project-text">
+    <div class="project-number">04 / TRAITEMENT D’IMAGES</div>
+    <p class="project-eyebrow">Estimation de mouvement · Appariement de blocs</p>
+    <h3 class="project-title">Estimer le mouvement entre deux images.</h3>
+    <p class="project-desc">Mise en œuvre sous MATLAB d'une méthode d'estimation de mouvement par appariement exhaustif de blocs sur deux paires d'images.</p>
+    <ul class="project-points">
+      <li>Découpage de l'image en blocs de <strong>16 × 16 pixels</strong></li>
+      <li>Recherche exhaustive dans une fenêtre de <strong>15 × 15 pixels</strong></li>
+      <li>Calcul du meilleur appariement avec l'<strong>EQM</strong></li>
+      <li>Reconstruction de l'image et évaluation de l'erreur</li>
+    </ul>
+    <div class="tags">
+      <span class="tag">MATLAB</span><span class="tag">Motion Estimation</span><span class="tag">Block Matching</span><span class="tag">EQM</span>
+    </div>
+  </div>
+  <div class="project-imgs">
+    <div class="img-grid c2">
+      <div class="img-grid-item"><img class="clickable-img" src="block_f1.png" alt="Image F1 — séquence pour estimation de mouvement"/><div class="img-cap">Séquence F — image n</div></div>
+      <div class="img-grid-item"><img class="clickable-img" src="block_f2.png" alt="Image F2 — séquence pour estimation de mouvement"/><div class="img-cap">Séquence F — image n+1</div></div>
+    </div>
+    <div class="img-grid c2" style="margin-top:12px">
+      <div class="img-grid-item"><img class="clickable-img" src="block_e1.png" alt="Image E1 — séquence pour estimation de mouvement"/><div class="img-cap">Séquence E — image n</div></div>
+      <div class="img-grid-item"><img class="clickable-img" src="block_e2.png" alt="Image E2 — séquence pour estimation de mouvement"/><div class="img-cap">Séquence E — image n+1</div></div>
+    </div>
+  </div>
+</div>
+
 <!-- SIGNAL -->
 <div id="page-signal" class="page">
   <div class="cat-hero">
@@ -444,23 +590,32 @@ footer span{color:#fff}
   <div class="content">
     <div class="project-block" style="grid-template-columns:1fr;">
       <div class="project-text">
-        <p class="project-eyebrow">TP · Analyse, codage et synthèse de la parole</p>
+        <div class="project-number">01 / SIGNAL</div><p class="project-eyebrow">TP · Analyse, codage et synthèse de la parole</p>
         <h3 class="project-title">De l'onde sonore au modèle mathématique.</h3>
         <p class="project-desc">Ce TP explore la chaîne complète du traitement de la parole. Le signal étudié est le mot "assécher", contenant 5 phonèmes distincts représentatifs des sons voisés et non-voisés.</p>
         <ul class="project-points">
-          <li>Analyse temporelle : audiogramme et identification des 5 phonèmes [a]-[ss]-[é]-[ch]-[er]</li>
-          <li>Analyse fréquentielle : transformée de Fourier, spectrogrammes bande étroite et large</li>
-          <li>Codage LPC d'ordre 12 : estimation des coefficients par autocorrélation</li>
-          <li>Période pitch estimée entre 3.6 et 4.5 ms — voix grave à moyenne</li>
-          <li>Synthèse source-filtre : signal intelligible reproduit fidèlement</li>
-          <li>Modification du pitch : voix rendue plus grave en doublant la période</li>
+          <li>Analyse temporelle et fréquentielle de la parole</li>
+          <li>FFT et spectrogrammes pour étudier les composantes du signal</li>
+          <li>Codage LPC d'ordre 12 et estimation du pitch par autocorrélation</li>
+          <li>Synthèse source-filtre et modification de la hauteur de la voix</li>
         </ul>
         <div class="tags">
           <span class="tag">MATLAB</span><span class="tag">LPC</span><span class="tag">FFT</span><span class="tag">Spectrogramme</span><span class="tag">Synthèse vocale</span>
         </div>
-        <p style="margin-top:2rem;padding:1.2rem 1.5rem;background:var(--rose-pale);border-radius:10px;border-left:3px solid var(--rose);font-size:0.85rem;color:var(--muted);">
-          📌 Images du projet à ajouter prochainement
-        </p>
+        <div class="metric-highlight">
+          <strong>3,6–4,5 ms</strong><span>plage de période de pitch étudiée</span>
+        </div>
+        <div class="signal-lab">
+          <div class="signal-lab-head">
+            <span class="signal-lab-title">Signal vocal — visualisation</span>
+            <span class="signal-live">ANIMATION EN DIRECT</span>
+          </div>
+          <canvas id="signalCanvas"></canvas>
+          <div class="signal-lab-foot">
+            <span><strong>Temps</strong> → évolution du signal</span>
+            <span><strong>FFT / spectre</strong> → contenu fréquentiel</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -498,6 +653,11 @@ footer span{color:#fff}
   </div>
 </div>
 
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" aria-label="Fermer">&times;</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
 <footer>
   <p>© 2026 <span>Saran Kaba</span> · Master 2 SIA2 · Université Toulouse III Paul Sabatier</p>
 </footer>
@@ -506,11 +666,90 @@ footer span{color:#fff}
 function showPage(name){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
-  document.getElementById('page-'+name).classList.add('active');
-  document.getElementById('nav-'+name).classList.add('active');
-  window.scrollTo(0,0);
+  const page = document.getElementById('page-'+name);
+  const nav = document.getElementById('nav-'+name);
+  if(page) page.classList.add('active');
+  if(nav) nav.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(name === 'signal') requestAnimationFrame(startSignalAnimation);
   return false;
 }
+
+/* Signal animation — smooth, lightweight canvas */
+let signalRAF = null;
+let signalStart = performance.now();
+
+function startSignalAnimation(){
+  const canvas = document.getElementById('signalCanvas');
+  if(!canvas) return;
+  if(signalRAF) cancelAnimationFrame(signalRAF);
+  const ctx = canvas.getContext('2d');
+
+  function resize(){
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  resize();
+  window.removeEventListener('resize', resize);
+  window.addEventListener('resize', resize);
+
+  function draw(now){
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    ctx.clearRect(0,0,w,h);
+
+    /* subtle grid */
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(148,163,184,.10)';
+    for(let x=0;x<w;x+=44){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke();}
+    for(let y=18;y<h;y+=32){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
+
+    const t = (now-signalStart)/1000;
+    ctx.beginPath();
+    for(let x=0;x<w;x++){
+      const p=x/w;
+      const y0=h/2;
+      const envelope=.78+.16*Math.sin(p*7-t*.7);
+      const wave=
+        Math.sin(p*Math.PI*18-t*5.0)*.58+
+        Math.sin(p*Math.PI*43-t*7.2)*.20+
+        Math.sin(p*Math.PI*83-t*10.4)*.08;
+      const y=y0+wave*envelope*(h*.31);
+      if(x===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+    }
+    ctx.lineWidth=2;
+    ctx.strokeStyle='#91adff';
+    ctx.stroke();
+
+    /* moving cursor */
+    const cx=(t*90)%w;
+    ctx.beginPath();ctx.moveTo(cx,12);ctx.lineTo(cx,h-12);
+    ctx.lineWidth=1;ctx.strokeStyle='rgba(145,173,255,.35)';ctx.stroke();
+
+    signalRAF=requestAnimationFrame(draw);
+  }
+  signalRAF=requestAnimationFrame(draw);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  /* Lightbox */
+  const lightbox=document.getElementById('lightbox');
+  const lightboxImg=document.getElementById('lightboxImg');
+  document.querySelectorAll('.clickable-img').forEach(img=>{
+    img.addEventListener('click', ()=>{
+      lightboxImg.src=img.src;
+      lightboxImg.alt=img.alt;
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden','false');
+    });
+  });
+  const close=()=>{lightbox.classList.remove('open');lightbox.setAttribute('aria-hidden','true');};
+  document.querySelector('.lightbox-close').addEventListener('click',close);
+  lightbox.addEventListener('click',e=>{if(e.target===lightbox)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+});
 </script>
 </body>
 </html>
