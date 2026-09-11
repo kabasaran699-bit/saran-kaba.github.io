@@ -257,6 +257,133 @@ footer span{color:#fff}
 }
 
 /* V3 — polish & motion */
+/* ===== ANIMATIONS V4 ===== */
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(.22,.68,0,1.2), transform 0.7s cubic-bezier(.22,.68,0,1.2);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-left.visible { opacity: 1; transform: none; }
+.reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-right.visible { opacity: 1; transform: none; }
+
+/* Stagger delays */
+.reveal:nth-child(1) { transition-delay: 0s; }
+.reveal:nth-child(2) { transition-delay: 0.1s; }
+.reveal:nth-child(3) { transition-delay: 0.2s; }
+.reveal:nth-child(4) { transition-delay: 0.3s; }
+
+/* Number counter animation */
+.stat-num[data-target] { transition: all 0.3s ease; }
+
+/* Result bars animate on scroll */
+.result-fill {
+  width: 0% !important;
+  transition: width 1.2s cubic-bezier(.22,.68,0,1.2);
+}
+.result-fill.animated {
+  width: var(--target-width) !important;
+}
+
+/* Hover glow on project cards */
+.project-block {
+  transition: all 0.3s ease;
+}
+
+/* Image zoom on hover */
+.img-main img, .img-grid-item img {
+  transition: transform 0.4s ease;
+}
+.img-main:hover img, .img-grid-item:hover img {
+  transform: scale(1.03);
+}
+
+/* Tag shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Nav active underline slide */
+.nav-links a {
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.25s ease, left 0.25s ease;
+}
+.nav-links a:hover::after, .nav-links a.active::after {
+  width: 70%;
+  left: 15%;
+}
+
+/* Hero title word animation */
+@keyframes wordIn {
+  from { opacity: 0; transform: translateY(20px) rotateX(-15deg); }
+  to { opacity: 1; transform: none; }
+}
+.hero-title-word {
+  display: inline-block;
+  animation: wordIn 0.6s cubic-bezier(.22,.68,0,1.2) both;
+}
+
+/* Stat number pulse */
+@keyframes statPop {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.stat-num { animation: statPop 0.5s ease both; }
+
+/* Cat hero gradient animation */
+@keyframes gradMove {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.cat-hero {
+  background: linear-gradient(135deg, #111827, #1b2535, #0f1b2d, #1a2535);
+  background-size: 300% 300%;
+  animation: gradMove 8s ease infinite;
+}
+
+/* Project eyebrow bounce */
+@keyframes eyebrowIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: none; }
+}
+.project-eyebrow { animation: eyebrowIn 0.4s ease both; }
+
+/* Floating photo */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+.hero-photo {
+  animation: float 5s ease-in-out infinite;
+}
+
 .topbar{
   background:#111827;color:#c9d1dc;
   border-bottom:1px solid rgba(255,255,255,.08);
@@ -416,8 +543,8 @@ footer span{color:#fff}
   <div class="content">
 
     <!-- PROJET 1 -->
-    <div class="project-block">
-      <div class="project-text">
+    <div class="project-block reveal">
+      <div class="project-text reveal-left">
         <div class="project-number">01 / TRAITEMENT D’IMAGES</div><p class="project-eyebrow">Projet · Segmentation par seuillage</p>
         <h3 class="project-title">Du ciel à la terre — trois problèmes, une méthode.</h3>
         <p class="project-desc">Comment distinguer automatiquement les nuages du soleil ? La végétation du sol nu ? Les piscines des toits ? Ce TP répond à ces trois questions réelles avec des techniques de segmentation par analyse de couleur.</p>
@@ -431,7 +558,7 @@ footer span{color:#fff}
           <span class="tag">MATLAB</span><span class="tag">Seuillage</span><span class="tag">NDVI</span><span class="tag">Morphologie</span><span class="tag">Télédétection</span>
         </div>
       </div>
-      <div class="project-imgs">
+      <div class="project-imgs reveal-right">
         <div class="img-main"><img src="piscines_rouge.png" alt="Piscines détectées en rouge"/></div>
         <div class="img-cap">Piscines détectées automatiquement en rouge par imagerie aérienne</div>
         <div class="img-grid c2">
@@ -444,8 +571,8 @@ footer span{color:#fff}
     </div>
 
     <!-- PROJET 2 : SLIC -->
-    <div class="project-block reverse">
-      <div class="project-text">
+    <div class="project-block reverse reveal">
+      <div class="project-text reveal-left">
         <div class="project-number">02 / TRAITEMENT D’IMAGES</div><p class="project-eyebrow">Projet de recherche · Algorithme SLIC</p>
         <h3 class="project-title">Repenser le pixel — les superpixels.</h3>
         <p class="project-desc">Traiter une image pixel par pixel c'est long et coûteux. La solution ? Regrouper les pixels en petites régions homogènes appelées superpixels, réduisant drastiquement le temps de calcul tout en conservant l'information essentielle.</p>
@@ -459,7 +586,7 @@ footer span{color:#fff}
           <span class="tag">MATLAB</span><span class="tag">SLIC</span><span class="tag">Superpixels</span><span class="tag">Berkeley BSDS500</span><span class="tag">IRM</span>
         </div>
       </div>
-      <div class="project-imgs">
+      <div class="project-imgs reveal-right">
         <div class="img-main"><img src="slic_fleur.png" alt="SLIC fleur"/></div>
         <div class="img-cap">Initialisation des superpixels sur image synthétique</div>
         <div class="img-grid c3">
@@ -470,88 +597,10 @@ footer span{color:#fff}
       </div>
     </div>
 
-    <!-- PROJET 3 : SEGMENTATION D'IMAGES -->
-    <div class="project-block">
-      <div class="project-text">
-        <div class="project-number">03 / TRAITEMENT D’IMAGES</div>
-        <p class="project-eyebrow">TP · Segmentation et analyse d'images</p>
-        <h3 class="project-title">Extraire l'information utile d'une image.</h3>
-        <p class="project-desc">Application de méthodes de segmentation sur des images aériennes et satellitaires pour détecter des objets ou des zones d'intérêt.</p>
-        <ul class="project-points">
-          <li>Détection du soleil et des nuages par analyse des composantes couleur</li>
-          <li>Extraction de la végétation par indice NDVI et seuillage</li>
-          <li>Détection de piscines par différence entre composantes bleue et rouge</li>
-          <li>Nettoyage des masques par opérations morphologiques</li>
-        </ul>
-        <div class="tags">
-          <span class="tag">MATLAB</span><span class="tag">Segmentation</span><span class="tag">NDVI</span><span class="tag">Seuillage</span><span class="tag">Morphologie</span>
-        </div>
-      </div>
-      <div class="project-imgs">
-        <div class="img-main"><img class="clickable-img" src="vegetation_filtre.png" alt="Végétation extraite"/></div>
-        <div class="img-cap">Extraction de la végétation après segmentation</div>
-        <div class="img-grid c2">
-          <div class="img-grid-item"><img class="clickable-img" src="piscines_rouge.png" alt="Piscines détectées"/><div class="img-cap">Détection des piscines</div></div>
-          <div class="img-grid-item"><img class="clickable-img" src="masque_soleil.png" alt="Masque du soleil"/><div class="img-cap">Extraction du soleil</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- IA & MACHINE LEARNING -->
-<div id="page-ia" class="page">
-  <div class="cat-hero">
-    <div class="cat-hero-inner">
-      <p class="cat-eyebrow">Machine Learning · Deep Learning · Python</p>
-      <h2 class="cat-title">L'IA au service<br>de la <span class="rose">médecine.</span></h2>
-      <p class="cat-desc">Classifier une tumeur cérébrale à partir d'une IRM — c'est le défi relevé en comparant trois architectures de deep learning sur des données médicales réelles.</p>
-    </div>
-  </div>
-  <div class="content">
-    <div class="project-block">
-      <div class="project-text">
-        <div class="project-number">01 / MACHINE LEARNING</div><p class="project-eyebrow">Projet · Classification d'images médicales</p>
-        <h3 class="project-title">Peut-on faire confiance à un modèle pour détecter une tumeur ?</h3>
-        <p class="project-desc">Nous avons développé et comparé trois approches de deep learning sur des IRM cérébrales. La question : quel modèle est le plus précis, et comment interpréter ses décisions en contexte médical ?</p>
-        <ul class="project-points">
-          <li>CNN de base — architecture construite from scratch</li>
-          <li>VGG16 Feature Extraction — transfert de connaissances ImageNet</li>
-          <li>VGG16 Fine Tuning + Data Augmentation — meilleur résultat</li>
-          <li>Visualisation des filtres pour l'interprétabilité médicale</li>
-        </ul>
-        <div class="tags">
-          <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">VGG16</span><span class="tag">CNN</span><span class="tag">Streamlit</span><span class="tag">Transfer Learning</span>
-        </div>
-        <div class="results-box">
-          <p class="results-box-title">Résultats — VGG16 Fine Tuning</p>
-          <div class="result-row"><div class="result-top">Gliome <span>89%</span></div><div class="result-bar"><div class="result-fill" style="width:89%"></div></div></div>
-          <div class="result-row"><div class="result-top">Méningiome <span>91%</span></div><div class="result-bar"><div class="result-fill" style="width:91%"></div></div></div>
-          <div class="result-row"><div class="result-top">Normal <span>98%</span></div><div class="result-bar"><div class="result-fill" style="width:98%"></div></div></div>
-          <div class="result-row"><div class="result-top">Tumeur hypophysaire <span>91%</span></div><div class="result-bar"><div class="result-fill" style="width:91%"></div></div></div>
-          <div class="result-total">
-            <div class="result-total-num">91,37%</div>
-            <div class="result-total-label">Précision globale</div>
-          </div>
-        </div>
-      </div>
-      <div class="project-imgs">
-        <div class="img-main"><img src="matrice_confusion.png" alt="Matrice confusion"/></div>
-        <div class="img-cap">Matrice de confusion — VGG16 Fine Tuning</div>
-        <div class="img-main" style="margin-top:0.8rem;"><img src="irm_exemples.png" alt="IRM"/></div>
-        <div class="img-cap">Exemples d'images IRM par catégorie</div>
-        <div class="img-grid c2" style="margin-top:0.8rem;">
-          <div class="img-grid-item"><img src="courbe_accuracy.png" alt="Accuracy"/><div class="img-cap">Courbe Accuracy</div></div>
-          <div class="img-grid-item"><img src="courbe_loss.png" alt="Loss"/><div class="img-cap">Courbe Loss</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- PROJET 4 : BLOCK MATCHING -->
-<div class="project-block">
-  <div class="project-text">
+<!-- PROJET 3 : BLOCK MATCHING -->
+<div class="project-block reveal">
+  <div class="project-text reveal-left">
     <div class="project-number">04 / TRAITEMENT D’IMAGES</div>
     <p class="project-eyebrow">Estimation de mouvement · Appariement de blocs</p>
     <h3 class="project-title">Estimer le mouvement entre deux images.</h3>
@@ -566,7 +615,7 @@ footer span{color:#fff}
       <span class="tag">MATLAB</span><span class="tag">Motion Estimation</span><span class="tag">Block Matching</span><span class="tag">EQM</span>
     </div>
   </div>
-  <div class="project-imgs">
+  <div class="project-imgs reveal-right">
     <div class="img-grid c2">
       <div class="img-grid-item"><img class="clickable-img" src="block_f1.png" alt="Image F1 — séquence pour estimation de mouvement"/><div class="img-cap">Séquence F — image n</div></div>
       <div class="img-grid-item"><img class="clickable-img" src="block_f2.png" alt="Image F2 — séquence pour estimation de mouvement"/><div class="img-cap">Séquence F — image n+1</div></div>
@@ -577,6 +626,60 @@ footer span{color:#fff}
     </div>
   </div>
 </div>
+
+  </div>
+</div>
+
+<!-- IA & MACHINE LEARNING -->
+<div id="page-ia" class="page">
+  <div class="cat-hero">
+    <div class="cat-hero-inner">
+      <p class="cat-eyebrow">Machine Learning · Deep Learning · Python</p>
+      <h2 class="cat-title">L'IA au service<br>de la <span class="rose">médecine.</span></h2>
+      <p class="cat-desc">Classifier une tumeur cérébrale à partir d'une IRM — c'est le défi relevé en comparant trois architectures de deep learning sur des données médicales réelles.</p>
+    </div>
+  </div>
+  <div class="content">
+    <div class="project-block reveal">
+      <div class="project-text reveal-left">
+        <div class="project-number">01 / MACHINE LEARNING</div><p class="project-eyebrow">Projet · Classification d'images médicales</p>
+        <h3 class="project-title">Peut-on faire confiance à un modèle pour détecter une tumeur ?</h3>
+        <p class="project-desc">Nous avons développé et comparé trois approches de deep learning sur des IRM cérébrales. La question : quel modèle est le plus précis, et comment interpréter ses décisions en contexte médical ?</p>
+        <ul class="project-points">
+          <li>CNN de base — architecture construite from scratch</li>
+          <li>VGG16 Feature Extraction — transfert de connaissances ImageNet</li>
+          <li>VGG16 Fine Tuning + Data Augmentation — meilleur résultat</li>
+          <li>Visualisation des filtres pour l'interprétabilité médicale</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">VGG16</span><span class="tag">CNN</span><span class="tag">Streamlit</span><span class="tag">Transfer Learning</span>
+        </div>
+        <div class="results-box">
+          <p class="results-box-title">Résultats — VGG16 Fine Tuning</p>
+          <div class="result-row"><div class="result-top">Gliome <span>89%</span></div><div class="result-bar"><div class="result-fill" style="--target-width:89%"></div></div></div>
+          <div class="result-row"><div class="result-top">Méningiome <span>91%</span></div><div class="result-bar"><div class="result-fill" style="--target-width:91%"></div></div></div>
+          <div class="result-row"><div class="result-top">Normal <span>98%</span></div><div class="result-bar"><div class="result-fill" style="--target-width:98%"></div></div></div>
+          <div class="result-row"><div class="result-top">Tumeur hypophysaire <span>91%</span></div><div class="result-bar"><div class="result-fill" style="--target-width:91%"></div></div></div>
+          <div class="result-total">
+            <div class="result-total-num">91,37%</div>
+            <div class="result-total-label">Précision globale</div>
+          </div>
+        </div>
+      </div>
+      <div class="project-imgs reveal-right">
+        <div class="img-main"><img src="matrice_confusion.png" alt="Matrice confusion"/></div>
+        <div class="img-cap">Matrice de confusion — VGG16 Fine Tuning</div>
+        <div class="img-main" style="margin-top:0.8rem;"><img src="irm_exemples.png" alt="IRM"/></div>
+        <div class="img-cap">Exemples d'images IRM par catégorie</div>
+        <div class="img-grid c2" style="margin-top:0.8rem;">
+          <div class="img-grid-item"><img src="courbe_accuracy.png" alt="Accuracy"/><div class="img-cap">Courbe Accuracy</div></div>
+          <div class="img-grid-item"><img src="courbe_loss.png" alt="Loss"/><div class="img-cap">Courbe Loss</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- SIGNAL -->
 <div id="page-signal" class="page">
@@ -589,7 +692,7 @@ footer span{color:#fff}
   </div>
   <div class="content">
     <div class="project-block" style="grid-template-columns:1fr;">
-      <div class="project-text">
+      <div class="project-text reveal-left">
         <div class="project-number">01 / SIGNAL</div><p class="project-eyebrow">TP · Analyse, codage et synthèse de la parole</p>
         <h3 class="project-title">De l'onde sonore au modèle mathématique.</h3>
         <p class="project-desc">Ce TP explore la chaîne complète du traitement de la parole. Le signal étudié est le mot "assécher", contenant 5 phonèmes distincts représentatifs des sons voisés et non-voisés.</p>
@@ -663,6 +766,8 @@ footer span{color:#fff}
 </footer>
 
 <script>
+let observeAll = function(){};
+
 function showPage(name){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
@@ -671,6 +776,7 @@ function showPage(name){
   if(page) page.classList.add('active');
   if(nav) nav.classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(observeAll, 100);
   if(name === 'signal') requestAnimationFrame(startSignalAnimation);
   return false;
 }
@@ -734,6 +840,31 @@ function startSignalAnimation(){
 }
 
 document.addEventListener('DOMContentLoaded', ()=>{
+  /* Scroll reveal observer */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        /* Animate result bars */
+        entry.target.querySelectorAll('.result-fill').forEach(bar => {
+          bar.classList.add('animated');
+        });
+      }
+    });
+  }, { threshold: 0.15 });
+
+  observeAll = function() {
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+      observer.observe(el);
+    });
+    document.querySelectorAll('.result-fill').forEach(bar => {
+      observer.observe(bar);
+    });
+  }
+  observeAll();
+
+
+
   /* Lightbox */
   const lightbox=document.getElementById('lightbox');
   const lightboxImg=document.getElementById('lightboxImg');
