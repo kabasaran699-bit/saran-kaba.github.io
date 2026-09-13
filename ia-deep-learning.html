@@ -1,87 +1,66 @@
 <!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>IA & Deep Learning — Saran KABA</title><style>
-:root{--bg:#fbfaf8;--paper:#fff;--cream:#f8efe4;--lav:#eee9fb;--ink:#211642;--muted:#6f687f;--accent:#5b49a6;--line:#e6dff0;--shadow:0 18px 45px rgba(43,31,82,.10)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--ink)}
-.wrap{width:min(1180px,92%);margin:auto}.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);border-bottom:1px solid var(--line)}
-.nav-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:900}.brand small{display:block;color:var(--muted);font-size:.75rem}
-.links{display:flex;gap:24px}.links a{text-decoration:none;color:#43395e}.hero{padding:80px 0;background:linear-gradient(120deg,#fff,#fbf7f2 48%,#eee9fb)}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}.eyebrow{text-transform:uppercase;letter-spacing:.17em;color:var(--accent);font-size:.75rem;font-weight:900}
-h1,h2,h3{margin:0}h1{font-family:Georgia,serif;font-size:clamp(2.8rem,6vw,5.2rem);line-height:1.02;margin:14px 0}
-.hero p,.section-head p,.card p{color:var(--muted);line-height:1.65}.hero-visual{min-height:320px;border-radius:28px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
-.btn{display:inline-block;margin-top:18px;padding:12px 18px;border:1px solid var(--accent);border-radius:10px;text-decoration:none;color:var(--accent);font-weight:800}
-.section{padding:80px 0}.section.alt{background:var(--cream)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:32px}.section-head h2{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3.2rem)}
-.grid,.domain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.card,.domain-card{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 10px 30px rgba(43,31,82,.06);transition:.3s}.card:hover,.domain-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.card-media,.domain-card .media{height:220px;overflow:hidden;background:linear-gradient(135deg,#f5eee9,#e9e4fb);display:flex;align-items:center;justify-content:center}.card-media img,.domain-card .media img{width:100%;height:100%;object-fit:cover}
-.card-body,.domain-card .meta{padding:22px}.domain-card{text-decoration:none;color:inherit}.tag{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--lav);color:var(--accent);font-size:.72rem;font-weight:900;margin-bottom:12px}
-.arrow{display:block;margin-top:14px;color:var(--accent);font-weight:900}.svg-visual{width:100%;height:100%}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}.reveal.visible{opacity:1;transform:none}.delay1{transition-delay:.08s}.delay2{transition-delay:.16s}
-footer{padding:40px 0;background:#fff;border-top:1px solid var(--line);color:var(--muted)}
-@media(max-width:900px){.hero-grid,.grid,.domain-grid{grid-template-columns:1fr 1fr}.links{display:none}.hero-grid{grid-template-columns:1fr}}
-@media(max-width:620px){.grid,.domain-grid{grid-template-columns:1fr}.section-head{display:block}}
-</style></head><body><nav class="nav"><div class="wrap nav-inner"><div class="brand">SARAN KABA<small>Signal · Image · IA</small></div><div class="links"><a href="index.html">Accueil</a><a href="index.html#domaines">Domaines</a><a href="mailto:kabasaran699@gmail.com">Contact</a></div></div></nav><header class="hero"><div class="wrap hero-grid"><div class="reveal"><div class="eyebrow">Domaine</div><h1>IA & Deep Learning</h1><p>Classification d’IRM avec CNN, VGG16 et Transfer Learning.</p><a class="btn" href="index.html">← Retour à l’accueil</a></div><div class="hero-visual reveal delay1"><svg class="svg-visual" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
-<rect width="800" height="420" fill="#fbfaf8"/>
-<g stroke="#d8d0ea" stroke-width="2"><path d="M120 90V330M680 90V330"/><path d="M120 110H680M120 200H680M120 290H680"/></g>
-<g fill="#5b49a6">
-<circle cx="170" cy="125" r="16"/><circle cx="170" cy="210" r="16"/><circle cx="170" cy="295" r="16"/>
-<circle cx="340" cy="145" r="14"/><circle cx="340" cy="210" r="14"/><circle cx="340" cy="275" r="14"/>
-<circle cx="510" cy="170" r="14"/><circle cx="510" cy="250" r="14"/>
-<circle cx="645" cy="210" r="18"/>
-</g>
-<g stroke="#8a78cc" stroke-width="3" opacity=".75">
-<path d="M186 125L326 145M186 125L326 210M186 210L326 145M186 210L326 275M186 295L326 210M186 295L326 275"/>
-<path d="M354 145L496 170M354 145L496 250M354 210L496 170M354 210L496 250M354 275L496 170M354 275L496 250"/>
-<path d="M524 170L627 210M524 250L627 210"/>
-</g>
-<text x="250" y="70" fill="#5b49a6" font-size="30">CNN · VGG16 · Transfer Learning</text>
-</svg></div></div></header>
-<section class="section"><div class="wrap"><div class="section-head reveal"><div><div class="eyebrow">Projet</div><h2>Classification d’IRM cérébrales</h2></div></div><div class="grid">
-<div class="card reveal"><div class="card-media"><svg class="svg-visual" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
-<rect width="800" height="420" fill="#fbfaf8"/>
-<g stroke="#d8d0ea" stroke-width="2"><path d="M120 90V330M680 90V330"/><path d="M120 110H680M120 200H680M120 290H680"/></g>
-<g fill="#5b49a6">
-<circle cx="170" cy="125" r="16"/><circle cx="170" cy="210" r="16"/><circle cx="170" cy="295" r="16"/>
-<circle cx="340" cy="145" r="14"/><circle cx="340" cy="210" r="14"/><circle cx="340" cy="275" r="14"/>
-<circle cx="510" cy="170" r="14"/><circle cx="510" cy="250" r="14"/>
-<circle cx="645" cy="210" r="18"/>
-</g>
-<g stroke="#8a78cc" stroke-width="3" opacity=".75">
-<path d="M186 125L326 145M186 125L326 210M186 210L326 145M186 210L326 275M186 295L326 210M186 295L326 275"/>
-<path d="M354 145L496 170M354 145L496 250M354 210L496 170M354 210L496 250M354 275L496 170M354 275L496 250"/>
-<path d="M524 170L627 210M524 250L627 210"/>
-</g>
-<text x="250" y="70" fill="#5b49a6" font-size="30">CNN · VGG16 · Transfer Learning</text>
-</svg></div><div class="card-body"><span class="tag">Données</span><h3>Préparation des images</h3><p>Prétraitement et augmentation de données.</p></div></div>
-<div class="card reveal delay1"><div class="card-media"><svg class="svg-visual" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
-<rect width="800" height="420" fill="#fbfaf8"/>
-<g stroke="#d8d0ea" stroke-width="2"><path d="M120 90V330M680 90V330"/><path d="M120 110H680M120 200H680M120 290H680"/></g>
-<g fill="#5b49a6">
-<circle cx="170" cy="125" r="16"/><circle cx="170" cy="210" r="16"/><circle cx="170" cy="295" r="16"/>
-<circle cx="340" cy="145" r="14"/><circle cx="340" cy="210" r="14"/><circle cx="340" cy="275" r="14"/>
-<circle cx="510" cy="170" r="14"/><circle cx="510" cy="250" r="14"/>
-<circle cx="645" cy="210" r="18"/>
-</g>
-<g stroke="#8a78cc" stroke-width="3" opacity=".75">
-<path d="M186 125L326 145M186 125L326 210M186 210L326 145M186 210L326 275M186 295L326 210M186 295L326 275"/>
-<path d="M354 145L496 170M354 145L496 250M354 210L496 170M354 210L496 250M354 275L496 170M354 275L496 250"/>
-<path d="M524 170L627 210M524 250L627 210"/>
-</g>
-<text x="250" y="70" fill="#5b49a6" font-size="30">CNN · VGG16 · Transfer Learning</text>
-</svg></div><div class="card-body"><span class="tag">Entraînement</span><h3>VGG16</h3><p>Suivi de l’accuracy et fine-tuning.</p></div></div>
-<div class="card reveal delay2"><div class="card-media"><svg class="svg-visual" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
-<rect width="800" height="420" fill="#fbfaf8"/>
-<g stroke="#d8d0ea" stroke-width="2"><path d="M120 90V330M680 90V330"/><path d="M120 110H680M120 200H680M120 290H680"/></g>
-<g fill="#5b49a6">
-<circle cx="170" cy="125" r="16"/><circle cx="170" cy="210" r="16"/><circle cx="170" cy="295" r="16"/>
-<circle cx="340" cy="145" r="14"/><circle cx="340" cy="210" r="14"/><circle cx="340" cy="275" r="14"/>
-<circle cx="510" cy="170" r="14"/><circle cx="510" cy="250" r="14"/>
-<circle cx="645" cy="210" r="18"/>
-</g>
-<g stroke="#8a78cc" stroke-width="3" opacity=".75">
-<path d="M186 125L326 145M186 125L326 210M186 210L326 145M186 210L326 275M186 295L326 210M186 295L326 275"/>
-<path d="M354 145L496 170M354 145L496 250M354 210L496 170M354 210L496 250M354 275L496 170M354 275L496 250"/>
-<path d="M524 170L627 210M524 250L627 210"/>
-</g>
-<text x="250" y="70" fill="#5b49a6" font-size="30">CNN · VGG16 · Transfer Learning</text>
-</svg></div><div class="card-body"><span class="tag">Évaluation</span><h3>Matrice de confusion</h3><p>Analyse des prédictions sur 4 classes.</p></div></div>
-</div></div></section><footer><div class="wrap"><strong>Saran KABA</strong> — Master 2 Signal, Image & Apprentissage Automatique</div></footer><script>
-document.addEventListener("DOMContentLoaded",()=>{const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.1});document.querySelectorAll(".reveal").forEach(el=>o.observe(el));});
-</script></body></html>
+:root{
+  --bg:#fbfaf8; --paper:#fff; --cream:#f8efe4; --lav:#eee9fb;
+  --ink:#211642; --muted:#6f687f; --accent:#5b49a6; --accent2:#8a78cc;
+  --line:#e6dff0; --shadow:0 18px 45px rgba(43,31,82,.10);
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+a{color:inherit}
+.wrap{width:min(1180px,92%);margin:auto}
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-weight:900}.brand small{display:block;color:var(--muted);font-size:.72rem;margin-top:3px}
+.links{display:flex;gap:22px}.links a{text-decoration:none;color:#473c65}.links a:hover{color:var(--accent)}
+.hero{padding:80px 0;background:linear-gradient(120deg,#fff,#fbf7f2 48%,#eee9fb)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:.75rem;color:var(--accent);font-weight:900}
+h1,h2,h3{margin:0}
+h1{font-family:Georgia,serif;font-size:clamp(2.8rem,6vw,5.1rem);line-height:1.02;margin:14px 0 18px}
+.hero p,.lead,.project-detail p,.project-card p{color:var(--muted);line-height:1.7}
+.hero-visual{min-height:320px;border-radius:28px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
+.hero-visual img{width:100%;height:100%;object-fit:cover}
+.btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:800;border:1px solid var(--accent);color:var(--accent);background:#fff}
+.btn.primary{background:var(--accent);color:#fff}
+.section{padding:82px 0}.section.alt{background:var(--cream)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:34px}
+.section-head h2{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3.2rem)}
+.section-head p{max-width:620px;color:var(--muted);line-height:1.65;margin:0}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.project-card{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 10px 30px rgba(43,31,82,.06);transition:.3s}
+.project-card:hover{transform:translateY(-7px);box-shadow:var(--shadow)}
+.card-media{height:220px;background:linear-gradient(135deg,#f7f0eb,#e9e4fb);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.card-media img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.project-card:hover img{transform:scale(1.035)}
+.card-body{padding:22px}.tag{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--lav);color:var(--accent);font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.05em;margin-bottom:11px}
+.card-body h3{font-size:1.18rem;margin-bottom:9px}.open{display:block;margin-top:14px;color:var(--accent);font-weight:900}
+.details{display:grid;gap:30px}
+.project-detail{scroll-margin-top:95px;display:grid;grid-template-columns:.95fr 1.05fr;gap:34px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:0 10px 28px rgba(43,31,82,.05)}
+.project-detail:nth-child(even){grid-template-columns:1.05fr .95fr}
+.project-detail:nth-child(even) .detail-media{order:2}
+.detail-media{min-height:290px;border-radius:18px;overflow:hidden;background:linear-gradient(135deg,#f7f0eb,#e9e4fb);display:flex;align-items:center;justify-content:center}
+.detail-media img{width:100%;height:100%;object-fit:contain;background:#fff}
+.detail-text{align-self:center}
+.detail-text h3{font-family:Georgia,serif;font-size:2rem;margin-bottom:12px}
+.metrics{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.metric{padding:9px 12px;border-radius:10px;background:var(--lav);color:#51456f;font-weight:800;font-size:.84rem}
+.tech{margin-top:14px;font-size:.9rem;color:#51496a;font-weight:700}
+.domain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.domain-card{text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:.3s;box-shadow:0 10px 30px rgba(43,31,82,.05)}
+.domain-card:hover{transform:translateY(-7px);box-shadow:var(--shadow)}
+.domain-card .media{height:220px;overflow:hidden;background:linear-gradient(135deg,#f7f0eb,#e9e4fb);display:flex;align-items:center;justify-content:center}
+.domain-card .media img{width:100%;height:100%;object-fit:cover}
+.domain-card .meta{padding:22px}.domain-card p{color:var(--muted);line-height:1.55}.arrow{color:var(--accent);font-weight:900}
+.svg{width:100%;height:100%}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+footer{padding:42px 0;background:#fff;border-top:1px solid var(--line);color:var(--muted)}
+@media(max-width:900px){.hero-grid,.projects-grid,.domain-grid{grid-template-columns:1fr 1fr}.hero-grid{grid-template-columns:1fr}.project-detail,.project-detail:nth-child(even){grid-template-columns:1fr}.project-detail:nth-child(even) .detail-media{order:0}.links{display:none}}
+@media(max-width:620px){.projects-grid,.domain-grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:12px}}
+</style></head><body><nav class="nav"><div class="wrap nav-inner"><div class="brand">SARAN KABA<small>Signal · Image · IA</small></div><div class="links"><a href="index.html">Accueil</a><a href="index.html#domaines">Domaines</a><a href="mailto:kabasaran699@gmail.com">Contact</a></div></div></nav><header class="hero"><div class="wrap hero-grid"><div class="reveal"><div class="eyebrow">Domaine</div><h1>IA & Deep Learning</h1><p>Classification d'images médicales par réseaux de neurones convolutionnels.</p><a class="btn" href="index.html">← Retour à l'accueil</a></div><div class="hero-visual reveal"><img src="irm_exemples.png"></div></div></header><section class="section"><div class="wrap"><div class="section-head reveal"><div><div class="eyebrow">Mes projets</div><h2>Projet IA</h2></div></div><div class="projects-grid"><a class="project-card reveal" href="#mri"><div class="card-media"><img src="irm_exemples.png"></div><div class="card-body"><span class="tag">Deep Learning</span><h3>Classification d'IRM cérébrales</h3><p>CNN, VGG16, Transfer Learning et augmentation de données.</p><span class="open">Voir le projet ↓</span></div></a></div></div></section><section class="section alt"><div class="wrap"><div class="details"><article class="project-detail reveal" id="mri"><div class="detail-media"><img src="matrice_confusion.png"></div><div class="detail-text"><span class="tag">Deep Learning</span><h3>Classification d'IRM cérébrales</h3><p>Projet de classification d'IRM en 4 classes. Comparaison d'un CNN et d'un modèle VGG16 avec Transfer Learning, fine-tuning et augmentation de données.</p><div class="metrics"><span class="metric">4 classes</span><span class="metric">Accuracy finale : 91,37 %</span><span class="metric">VGG16</span></div><div class="tech">Outils : Python, TensorFlow/Keras</div></div></article></div></div></section><footer><div class="wrap"><strong style="color:#211642">Saran KABA</strong> — Master 2 Signal, Image & Apprentissage Automatique</div></footer>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+ const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.1});
+ document.querySelectorAll(".reveal").forEach(el=>o.observe(el));
+});
+</script>
+</body></html>
