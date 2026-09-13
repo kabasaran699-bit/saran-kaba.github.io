@@ -1,42 +1,67 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Saran Kaba — Portfolio Signal, Image & IA</title><style>
-:root{--bg:#fbfaf8;--panel:#ffffff;--panel2:#f8efe4;--txt:#20153f;--muted:#6f687f;--line:#e8e1ec;--a:#5b49a6;--b:#8a78cc}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 85% 0,#ebe6fb 0,transparent 34%),linear-gradient(180deg,#ffffff 0,#fbf8f4 46%,#f8efe4 100%);color:var(--txt);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.65}
-a{color:inherit}.wrap{width:min(1160px,91%);margin:auto}.nav{position:sticky;top:0;z-index:10;background:#ffffffea;backdrop-filter:blur(15px);border-bottom:1px solid var(--line)}.navin{display:flex;justify-content:space-between;align-items:center;min-height:68px;gap:20px}.brand{font-weight:850;letter-spacing:.04em}.links{display:flex;gap:18px;flex-wrap:wrap}.links a{text-decoration:none;color:var(--muted);font-size:.9rem}.links a:hover{color:var(--a)}
-.hero{padding:100px 0 76px}.eyebrow,.domain-label{color:var(--a);text-transform:uppercase;letter-spacing:.16em;font-size:.76rem;font-weight:800}.hero h1{font-size:clamp(3rem,8vw,7rem);line-height:.92;margin:15px 0 25px;letter-spacing:-.065em;max-width:980px}.gradient{background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;color:transparent}.hero p{max-width:760px;color:var(--muted);font-size:1.12rem}
-.hero-grid{display:grid;grid-template-columns:1.4fr .6fr;gap:50px;align-items:center}
-.profile-card{display:flex;justify-content:center}
-.profile-card img{width:min(330px,80vw);aspect-ratio:1/1;object-fit:cover;object-position:center;border-radius:28px;border:1px solid var(--line);box-shadow:0 24px 60px #4b3d6e1f}
-.chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:27px}.chip,.tag{border:1px solid #ded5e6;background:#ffffffc9;border-radius:999px;padding:7px 12px;color:#51486a;font-size:.8rem}
-.domain{padding:80px 0;border-top:1px solid var(--line)}.domain-head{display:grid;grid-template-columns:.8fr 1.7fr;gap:45px;margin-bottom:42px}.domain h2{font-size:clamp(2rem,4vw,3.7rem);line-height:1;margin:9px 0}.domain-head p{color:var(--muted);max-width:680px}
-.project{background:linear-gradient(145deg,#ffffff,#fbf7f1);border:1px solid var(--line);border-radius:25px;padding:clamp(22px,4vw,45px);margin:22px 0;box-shadow:0 20px 55px #4c3b6d14}.project-top{display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:start}.num{font-size:.75rem;color:var(--a);letter-spacing:.12em}.project h3{font-size:clamp(1.55rem,3vw,2.5rem);line-height:1.08;margin:8px 0 14px}.project p{color:var(--muted)}.metric{border-left:2px solid var(--a);padding-left:18px}.metric strong{display:block;font-size:1.65rem;color:#20153f}.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:28px}.gallery img{width:100%;height:220px;object-fit:contain;object-position:center;border:1px solid var(--line);border-radius:17px;background:#ffffff;padding:8px;transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}.gallery img:hover{transform:translateY(-4px) scale(1.012);border-color:#4a6b9c;box-shadow:0 16px 40px #0005}.gallery img.full{grid-column:1/-1;height:auto;max-height:440px;object-fit:contain}.caption{color:#7f91aa;font-size:.77rem;margin-top:8px}
-.formula{font-family:Georgia,serif;font-size:1.15rem;background:#f8f4fb;border:1px solid var(--line);border-radius:15px;padding:16px;margin-top:16px;color:#2d214f}
-.note{border:1px dashed #334868;border-radius:16px;padding:16px;color:#93a4bc;margin-top:22px}.footer{padding:70px 0 90px;border-top:1px solid var(--line);color:var(--muted)}
-
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:none}
-.project{transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}
-.project:hover{transform:translateY(-3px);border-color:#31486d;box-shadow:0 28px 70px #4c3b6d1d}
-.signal-lab{margin-top:28px;border:1px solid #ddd3e9;background:linear-gradient(145deg,#f8f4fb,#fffaf5);border-radius:20px;padding:20px;overflow:hidden}
-.signal-lab-top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
-.signal-lab-title{font-weight:800}
-.signal-lab small{color:var(--muted)}
-.signal-lab canvas{width:100%;height:210px;display:block;margin-top:16px;background:#1a1332;border:1px solid var(--line);border-radius:14px}
-.signal-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.signal-actions button{border:1px solid #cfc5dd;background:#ffffff;color:#4f4567;border-radius:999px;padding:8px 13px;cursor:pointer;transition:.25s}
-.signal-actions button:hover,.signal-actions button.active{background:#5b49a6;border-color:#5b49a6;color:white}
-@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 #5b49a600}50%{box-shadow:0 0 34px #5b49a622}}
-.profile-card img{animation:pulseGlow 4s ease-in-out infinite}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.profile-card img{animation:none}.project,.gallery img{transition:none}}
-@media(max-width:760px){.links{display:none}.hero-grid,.domain-head,.project-top{grid-template-columns:1fr}.profile-card{order:-1}.gallery{grid-template-columns:1fr}.gallery img{height:auto}.hero{padding-top:72px}}
-
-.domain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:34px}.domain-card{display:block;text-decoration:none;background:linear-gradient(145deg,#ffffff,#fbf7f1);border:1px solid var(--line);border-radius:25px;overflow:hidden;transition:.35s;min-height:250px;position:relative}.domain-card:hover{transform:translateY(-6px);border-color:#4a6b9c;box-shadow:0 25px 60px #4c3b6d1d}.domain-visual{height:160px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 70% 30%,#ddd6fa,transparent 46%),linear-gradient(135deg,#f3eefb,#efe2d3);font-size:3.2rem;color:#4f3b8d}.domain-card-body{padding:22px}.domain-card h3{margin:0 0 7px;font-size:1.35rem}.domain-card p{margin:0;color:var(--muted);font-size:.92rem}.arrow{position:absolute;right:22px;bottom:20px;color:var(--a);font-size:1.5rem}.page-hero{padding:78px 0 45px;border-bottom:1px solid var(--line)}.back{display:inline-block;margin-bottom:22px;text-decoration:none;color:var(--a)}.page-hero h1{font-size:clamp(2.6rem,6vw,5.5rem);line-height:.95;margin:10px 0 18px;letter-spacing:-.05em}.projects-wrap{padding:48px 0 80px}.coming{padding:55px;text-align:center;border:1px dashed #cfc4dd;border-radius:24px;color:var(--muted)}@media(max-width:760px){.domain-grid{grid-template-columns:1fr}}
-</style></head><body><nav class="nav"><div class="wrap navin"><div class="brand"><a href="index.html" style="text-decoration:none">SARAN KABA</a></div><div class="links"><a href="index.html#domaines">Domaines</a><a href="index.html#profil">Profil</a><a href="mailto:kabasaran699@gmail.com">Contact</a></div></div></nav>
-<header class="hero" id="profil"><div class="wrap"><div class="hero-grid"><div><div class="eyebrow">Signal · Image · Apprentissage automatique</div><h1>Transformer des données en <span class="gradient">solutions mesurables.</span></h1><p>Portfolio de projets académiques en traitement d’images, intelligence artificielle, traitement du signal, reconstruction et modélisation statistique.</p><div class="chips"><span class="chip">Python</span><span class="chip">MATLAB</span><span class="chip">Deep Learning</span><span class="chip">Computer Vision</span><span class="chip">Estimation</span></div></div><div class="profile-card"><img src="photo.jpg" alt="Photo de profil de Saran Kaba"></div></div></div></header>
-<main><section class="domain" id="domaines"><div class="wrap"><div class="domain-head reveal"><div><div class="domain-label">Explorer</div><h2>Mes domaines</h2></div><p>Cliquez sur un domaine pour accéder à une page dédiée et découvrir uniquement les projets associés.</p></div><div class="domain-grid">
-<a class="domain-card reveal" href="traitement-images.html"><div class="domain-visual">◫</div><div class="domain-card-body"><h3>Traitement d’images & Computer Vision</h3><p>Segmentation, mouvement, analyse d’images couleur.</p></div><span class="arrow">→</span></a>
-<a class="domain-card reveal" href="ia-deep-learning.html"><div class="domain-visual">◉</div><div class="domain-card-body"><h3>IA & Deep Learning</h3><p>CNN, VGG16, Transfer Learning et classification d’IRM.</p></div><span class="arrow">→</span></a>
-<a class="domain-card reveal" href="traitement-signal.html"><div class="domain-visual">∿</div><div class="domain-card-body"><h3>Traitement du signal</h3><p>Analyse spectrale, FFT et modélisation LPC.</p></div><span class="arrow">→</span></a>
-<a class="domain-card reveal" href="estimation-reconstruction.html"><div class="domain-visual">Σ</div><div class="domain-card-body"><h3>Modélisation, estimation & reconstruction</h3><p>Tomographie, moindres carrés et estimation statistique.</p></div><span class="arrow">→</span></a>
-<a class="domain-card reveal" href="3d-spatial.html"><div class="domain-visual">◇</div><div class="domain-card-body"><h3>3D & données spatiales</h3><p>Nuages de points, maillages, segmentation et projection 3D/2D.</p></div><span class="arrow">→</span></a>
-</div></div></section></main><footer class="footer"><div class="wrap"><b>Saran Kaba</b><br>Signal · Image · Apprentissage automatique<br><small>Stage M2 — disponible à partir de mars 2027</small></div></footer><script>document.addEventListener('DOMContentLoaded',()=>{const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});document.querySelectorAll('.reveal').forEach(e=>o.observe(e));});</script></body></html>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Portfolio — Saran KABA</title><style>
+:root{--bg:#fbfaf8;--paper:#fff;--cream:#f8efe4;--lav:#eee9fb;--ink:#211642;--muted:#6f687f;--accent:#5b49a6;--line:#e6dff0;--shadow:0 18px 45px rgba(43,31,82,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{width:min(1180px,92%);margin:auto}.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);border-bottom:1px solid var(--line)}
+.nav-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:900}.brand small{display:block;color:var(--muted);font-size:.75rem}
+.links{display:flex;gap:24px}.links a{text-decoration:none;color:#43395e}.hero{padding:80px 0;background:linear-gradient(120deg,#fff,#fbf7f2 48%,#eee9fb)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}.eyebrow{text-transform:uppercase;letter-spacing:.17em;color:var(--accent);font-size:.75rem;font-weight:900}
+h1,h2,h3{margin:0}h1{font-family:Georgia,serif;font-size:clamp(2.8rem,6vw,5.2rem);line-height:1.02;margin:14px 0}
+.hero p,.section-head p,.card p{color:var(--muted);line-height:1.65}.hero-visual{min-height:320px;border-radius:28px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
+.btn{display:inline-block;margin-top:18px;padding:12px 18px;border:1px solid var(--accent);border-radius:10px;text-decoration:none;color:var(--accent);font-weight:800}
+.section{padding:80px 0}.section.alt{background:var(--cream)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:32px}.section-head h2{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3.2rem)}
+.grid,.domain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.card,.domain-card{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 10px 30px rgba(43,31,82,.06);transition:.3s}.card:hover,.domain-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.card-media,.domain-card .media{height:220px;overflow:hidden;background:linear-gradient(135deg,#f5eee9,#e9e4fb);display:flex;align-items:center;justify-content:center}.card-media img,.domain-card .media img{width:100%;height:100%;object-fit:cover}
+.card-body,.domain-card .meta{padding:22px}.domain-card{text-decoration:none;color:inherit}.tag{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--lav);color:var(--accent);font-size:.72rem;font-weight:900;margin-bottom:12px}
+.arrow{display:block;margin-top:14px;color:var(--accent);font-weight:900}.svg-visual{width:100%;height:100%}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}.reveal.visible{opacity:1;transform:none}.delay1{transition-delay:.08s}.delay2{transition-delay:.16s}
+footer{padding:40px 0;background:#fff;border-top:1px solid var(--line);color:var(--muted)}
+@media(max-width:900px){.hero-grid,.grid,.domain-grid{grid-template-columns:1fr 1fr}.links{display:none}.hero-grid{grid-template-columns:1fr}}
+@media(max-width:620px){.grid,.domain-grid{grid-template-columns:1fr}.section-head{display:block}}
+</style></head><body><nav class="nav"><div class="wrap nav-inner"><div class="brand">SARAN KABA<small>Signal · Image · IA</small></div><div class="links"><a href="index.html">Accueil</a><a href="index.html#domaines">Domaines</a><a href="mailto:kabasaran699@gmail.com">Contact</a></div></div></nav><header class="hero"><div class="wrap hero-grid"><div class="reveal"><div class="eyebrow">Portfolio · Signal · Image · IA</div><h1>De la théorie à <span style="color:#5b49a6">l'impact.</span></h1><p>Projets académiques en traitement du signal, traitement d’images, IA, reconstruction et 3D.</p></div><div class="hero-visual reveal delay1"><svg class="svg-visual" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"><rect width="800" height="420" fill="#fbfaf8"/><g stroke="#d8d0ea" opacity=".6"><path d="M0 70H800M0 140H800M0 210H800M0 280H800M0 350H800"/></g><path d="M25 225 C80 80 115 350 170 205 S260 65 305 210 S390 360 440 205 S540 90 585 210 S680 345 770 200" fill="none" stroke="#5b49a6" stroke-width="7"/><g fill="#8a78cc"><rect x="520" y="285" width="18" height="55"/><rect x="550" y="245" width="18" height="95"/><rect x="580" y="185" width="18" height="155"/><rect x="610" y="125" width="18" height="215"/><rect x="640" y="210" width="18" height="130"/></g><text x="490" y="80" fill="#5b49a6" font-size="30">FFT · LPC · spectrogramme</text></svg></div></div></header>
+<section class="section alt" id="domaines"><div class="wrap"><div class="section-head reveal"><div><div class="eyebrow">Domaines</div><h2>Mes domaines d’expertise</h2></div><p>Chaque carte ouvre une page dédiée avec projets et visuels.</p></div><div class="domain-grid">
+<a class="domain-card reveal" href="traitement-images.html"><div class="media"><svg class="svg-visual" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
+<rect width="800" height="420" fill="#fbfaf8"/>
+<defs><linearGradient id="imgg" x1="0" x2="1"><stop stop-color="#eee9fb"/><stop offset="1" stop-color="#f8efe4"/></linearGradient></defs>
+<rect x="70" y="60" width="660" height="300" rx="24" fill="url(#imgg)" stroke="#d8d0ea"/>
+<g stroke="#5b49a6" stroke-width="3" fill="none">
+<path d="M125 300L235 180L315 245L395 140L500 255L590 185L675 300"/>
+<rect x="145" y="105" width="160" height="115" rx="18"/>
+<circle cx="225" cy="162" r="32"/>
+</g>
+<g fill="#8a78cc" opacity=".78">
+<circle cx="445" cy="120" r="16"/><circle cx="485" cy="150" r="12"/><circle cx="525" cy="120" r="13"/>
+<circle cx="565" cy="155" r="16"/><circle cx="605" cy="125" r="12"/>
+</g>
+<text x="390" y="345" fill="#5b49a6" font-size="28">Segmentation · contours · mouvement</text>
+</svg></div><div class="meta"><h3>Traitement d’images & Computer Vision</h3><p>Segmentation, mouvement, couleur.</p><span class="arrow">Voir les projets →</span></div></a>
+<a class="domain-card reveal delay1" href="ia-deep-learning.html"><div class="media"><svg class="svg-visual" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
+<rect width="800" height="420" fill="#fbfaf8"/>
+<g stroke="#d8d0ea" stroke-width="2"><path d="M120 90V330M680 90V330"/><path d="M120 110H680M120 200H680M120 290H680"/></g>
+<g fill="#5b49a6">
+<circle cx="170" cy="125" r="16"/><circle cx="170" cy="210" r="16"/><circle cx="170" cy="295" r="16"/>
+<circle cx="340" cy="145" r="14"/><circle cx="340" cy="210" r="14"/><circle cx="340" cy="275" r="14"/>
+<circle cx="510" cy="170" r="14"/><circle cx="510" cy="250" r="14"/>
+<circle cx="645" cy="210" r="18"/>
+</g>
+<g stroke="#8a78cc" stroke-width="3" opacity=".75">
+<path d="M186 125L326 145M186 125L326 210M186 210L326 145M186 210L326 275M186 295L326 210M186 295L326 275"/>
+<path d="M354 145L496 170M354 145L496 250M354 210L496 170M354 210L496 250M354 275L496 170M354 275L496 250"/>
+<path d="M524 170L627 210M524 250L627 210"/>
+</g>
+<text x="250" y="70" fill="#5b49a6" font-size="30">CNN · VGG16 · Transfer Learning</text>
+</svg></div><div class="meta"><h3>IA & Deep Learning</h3><p>CNN, VGG16, Transfer Learning.</p><span class="arrow">Voir les projets →</span></div></a>
+<a class="domain-card reveal delay2" href="traitement-signal.html"><div class="media"><svg class="svg-visual" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"><rect width="800" height="420" fill="#fbfaf8"/><g stroke="#d8d0ea" opacity=".6"><path d="M0 70H800M0 140H800M0 210H800M0 280H800M0 350H800"/></g><path d="M25 225 C80 80 115 350 170 205 S260 65 305 210 S390 360 440 205 S540 90 585 210 S680 345 770 200" fill="none" stroke="#5b49a6" stroke-width="7"/><g fill="#8a78cc"><rect x="520" y="285" width="18" height="55"/><rect x="550" y="245" width="18" height="95"/><rect x="580" y="185" width="18" height="155"/><rect x="610" y="125" width="18" height="215"/><rect x="640" y="210" width="18" height="130"/></g><text x="490" y="80" fill="#5b49a6" font-size="30">FFT · LPC · spectrogramme</text></svg></div><div class="meta"><h3>Traitement du signal</h3><p>FFT, spectrogrammes, LPC.</p><span class="arrow">Voir les projets →</span></div></a>
+<a class="domain-card reveal" href="estimation-reconstruction.html"><div class="media"><svg class="svg-visual" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
+<rect width="800" height="420" fill="#fbfaf8"/>
+<g fill="none" stroke="#d8d0ea" stroke-width="2"><circle cx="240" cy="210" r="120"/><circle cx="240" cy="210" r="80"/><circle cx="240" cy="210" r="40"/></g>
+<g stroke="#5b49a6" stroke-width="4" opacity=".85">
+<path d="M80 110L400 310"/><path d="M80 310L400 110"/><path d="M120 70L360 350"/>
+</g>
+<rect x="470" y="85" width="250" height="250" rx="20" fill="#eee9fb" stroke="#8a78cc"/>
+<path d="M500 290 C540 240 560 180 600 205 S650 270 695 145" fill="none" stroke="#5b49a6" stroke-width="6"/>
+<text x="485" y="55" fill="#5b49a6" font-size="28">Reconstruction · estimation</text>
+</svg></div><div class="meta"><h3>Modélisation, estimation & reconstruction</h3><p>Tomographie, ML, moindres carrés.</p><span class="arrow">Voir les projets →</span></div></a>
+<a class="domain-card reveal delay1" href="3d-spatial.html"><div class="media"><svg class="svg-visual" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"><rect width="800" height="420" fill="#fbfaf8"/><g stroke="#d7cfee"><path d="M100 330L400 120L700 330"/><path d="M100 330L400 390L700 330"/><path d="M400 120V390"/></g><g fill="#5b49a6"><circle cx="235" cy="265" r="8"/><circle cx="280" cy="220" r="6"/><circle cx="325" cy="285" r="7"/><circle cx="355" cy="195" r="9"/><circle cx="395" cy="250" r="6"/><circle cx="425" cy="178" r="7"/><circle cx="460" cy="270" r="9"/><circle cx="510" cy="225" r="6"/><circle cx="555" cy="290" r="8"/></g><text x="460" y="90" fill="#5b49a6" font-size="28">Nuages de points · maillages</text></svg></div><div class="meta"><h3>3D & données spatiales</h3><p>Nuages de points, maillages, projection 3D/2D.</p><span class="arrow">Voir les projets →</span></div></a>
+</div></div></section><footer><div class="wrap"><strong>Saran KABA</strong> — Master 2 Signal, Image & Apprentissage Automatique</div></footer><script>
+document.addEventListener("DOMContentLoaded",()=>{const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.1});document.querySelectorAll(".reveal").forEach(el=>o.observe(el));});
+</script></body></html>
