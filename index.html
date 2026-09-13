@@ -1,137 +1,42 @@
-<!doctype html>
-<html lang="fr">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Saran Kaba — Portfolio Signal, Image & IA</title>
-<style>
-:root{--bg:#07101f;--panel:#0d1728;--panel2:#111e33;--txt:#edf4ff;--muted:#9eacc2;--line:#22314b;--a:#6ee7ff;--b:#9b8cff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 85% 0,#17284c 0,transparent 32%),var(--bg);color:var(--txt);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.65}
-a{color:inherit}.wrap{width:min(1160px,91%);margin:auto}.nav{position:sticky;top:0;z-index:10;background:#07101fd9;backdrop-filter:blur(15px);border-bottom:1px solid var(--line)}.navin{display:flex;justify-content:space-between;align-items:center;min-height:68px;gap:20px}.brand{font-weight:850;letter-spacing:.04em}.links{display:flex;gap:18px;flex-wrap:wrap}.links a{text-decoration:none;color:var(--muted);font-size:.9rem}.links a:hover{color:var(--a)}
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Saran Kaba — Portfolio Signal, Image & IA</title><style>
+:root{--bg:#fbfaf8;--panel:#ffffff;--panel2:#f8efe4;--txt:#20153f;--muted:#6f687f;--line:#e8e1ec;--a:#5b49a6;--b:#8a78cc}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 85% 0,#ebe6fb 0,transparent 34%),linear-gradient(180deg,#ffffff 0,#fbf8f4 46%,#f8efe4 100%);color:var(--txt);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.65}
+a{color:inherit}.wrap{width:min(1160px,91%);margin:auto}.nav{position:sticky;top:0;z-index:10;background:#ffffffea;backdrop-filter:blur(15px);border-bottom:1px solid var(--line)}.navin{display:flex;justify-content:space-between;align-items:center;min-height:68px;gap:20px}.brand{font-weight:850;letter-spacing:.04em}.links{display:flex;gap:18px;flex-wrap:wrap}.links a{text-decoration:none;color:var(--muted);font-size:.9rem}.links a:hover{color:var(--a)}
 .hero{padding:100px 0 76px}.eyebrow,.domain-label{color:var(--a);text-transform:uppercase;letter-spacing:.16em;font-size:.76rem;font-weight:800}.hero h1{font-size:clamp(3rem,8vw,7rem);line-height:.92;margin:15px 0 25px;letter-spacing:-.065em;max-width:980px}.gradient{background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;color:transparent}.hero p{max-width:760px;color:var(--muted);font-size:1.12rem}
 .hero-grid{display:grid;grid-template-columns:1.4fr .6fr;gap:50px;align-items:center}
 .profile-card{display:flex;justify-content:center}
-.profile-card img{width:min(330px,80vw);aspect-ratio:1/1;object-fit:cover;object-position:center;border-radius:28px;border:1px solid var(--line);box-shadow:0 30px 90px #0007}
-.chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:27px}.chip,.tag{border:1px solid var(--line);background:#ffffff07;border-radius:999px;padding:7px 12px;color:#c6d2e6;font-size:.8rem}
+.profile-card img{width:min(330px,80vw);aspect-ratio:1/1;object-fit:cover;object-position:center;border-radius:28px;border:1px solid var(--line);box-shadow:0 24px 60px #4b3d6e1f}
+.chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:27px}.chip,.tag{border:1px solid #ded5e6;background:#ffffffc9;border-radius:999px;padding:7px 12px;color:#51486a;font-size:.8rem}
 .domain{padding:80px 0;border-top:1px solid var(--line)}.domain-head{display:grid;grid-template-columns:.8fr 1.7fr;gap:45px;margin-bottom:42px}.domain h2{font-size:clamp(2rem,4vw,3.7rem);line-height:1;margin:9px 0}.domain-head p{color:var(--muted);max-width:680px}
-.project{background:linear-gradient(145deg,#0d1728,#0a1323);border:1px solid var(--line);border-radius:25px;padding:clamp(22px,4vw,45px);margin:22px 0;box-shadow:0 20px 70px #0004}.project-top{display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:start}.num{font-size:.75rem;color:var(--a);letter-spacing:.12em}.project h3{font-size:clamp(1.55rem,3vw,2.5rem);line-height:1.08;margin:8px 0 14px}.project p{color:var(--muted)}.metric{border-left:2px solid var(--a);padding-left:18px}.metric strong{display:block;font-size:1.65rem;color:white}.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:28px}.gallery img{width:100%;height:220px;object-fit:contain;object-position:center;border:1px solid var(--line);border-radius:17px;background:#08111f;padding:8px;transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}.gallery img:hover{transform:translateY(-4px) scale(1.012);border-color:#4a6b9c;box-shadow:0 16px 40px #0005}.gallery img.full{grid-column:1/-1;height:auto;max-height:440px;object-fit:contain}.caption{color:#7f91aa;font-size:.77rem;margin-top:8px}
-.formula{font-family:Georgia,serif;font-size:1.15rem;background:#07101f;border:1px solid var(--line);border-radius:15px;padding:16px;margin-top:16px;color:#dcecff}
+.project{background:linear-gradient(145deg,#ffffff,#fbf7f1);border:1px solid var(--line);border-radius:25px;padding:clamp(22px,4vw,45px);margin:22px 0;box-shadow:0 20px 55px #4c3b6d14}.project-top{display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:start}.num{font-size:.75rem;color:var(--a);letter-spacing:.12em}.project h3{font-size:clamp(1.55rem,3vw,2.5rem);line-height:1.08;margin:8px 0 14px}.project p{color:var(--muted)}.metric{border-left:2px solid var(--a);padding-left:18px}.metric strong{display:block;font-size:1.65rem;color:#20153f}.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:28px}.gallery img{width:100%;height:220px;object-fit:contain;object-position:center;border:1px solid var(--line);border-radius:17px;background:#ffffff;padding:8px;transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}.gallery img:hover{transform:translateY(-4px) scale(1.012);border-color:#4a6b9c;box-shadow:0 16px 40px #0005}.gallery img.full{grid-column:1/-1;height:auto;max-height:440px;object-fit:contain}.caption{color:#7f91aa;font-size:.77rem;margin-top:8px}
+.formula{font-family:Georgia,serif;font-size:1.15rem;background:#f8f4fb;border:1px solid var(--line);border-radius:15px;padding:16px;margin-top:16px;color:#2d214f}
 .note{border:1px dashed #334868;border-radius:16px;padding:16px;color:#93a4bc;margin-top:22px}.footer{padding:70px 0 90px;border-top:1px solid var(--line);color:var(--muted)}
 
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:none}
 .project{transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}
-.project:hover{transform:translateY(-3px);border-color:#31486d;box-shadow:0 28px 80px #0006}
-.signal-lab{margin-top:28px;border:1px solid #29415f;background:linear-gradient(145deg,#091326,#07101f);border-radius:20px;padding:20px;overflow:hidden}
+.project:hover{transform:translateY(-3px);border-color:#31486d;box-shadow:0 28px 70px #4c3b6d1d}
+.signal-lab{margin-top:28px;border:1px solid #ddd3e9;background:linear-gradient(145deg,#f8f4fb,#fffaf5);border-radius:20px;padding:20px;overflow:hidden}
 .signal-lab-top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .signal-lab-title{font-weight:800}
 .signal-lab small{color:var(--muted)}
-.signal-lab canvas{width:100%;height:210px;display:block;margin-top:16px;background:#050b18;border:1px solid var(--line);border-radius:14px}
+.signal-lab canvas{width:100%;height:210px;display:block;margin-top:16px;background:#1a1332;border:1px solid var(--line);border-radius:14px}
 .signal-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.signal-actions button{border:1px solid #355075;background:#0b1729;color:#cbd8eb;border-radius:999px;padding:8px 13px;cursor:pointer;transition:.25s}
-.signal-actions button:hover,.signal-actions button.active{background:#19345c;border-color:#6ee7ff;color:white}
-@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 #6ee7ff00}50%{box-shadow:0 0 34px #6ee7ff18}}
+.signal-actions button{border:1px solid #cfc5dd;background:#ffffff;color:#4f4567;border-radius:999px;padding:8px 13px;cursor:pointer;transition:.25s}
+.signal-actions button:hover,.signal-actions button.active{background:#5b49a6;border-color:#5b49a6;color:white}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 #5b49a600}50%{box-shadow:0 0 34px #5b49a622}}
 .profile-card img{animation:pulseGlow 4s ease-in-out infinite}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.profile-card img{animation:none}.project,.gallery img{transition:none}}
 @media(max-width:760px){.links{display:none}.hero-grid,.domain-head,.project-top{grid-template-columns:1fr}.profile-card{order:-1}.gallery{grid-template-columns:1fr}.gallery img{height:auto}.hero{padding-top:72px}}
-</style></head>
-<body>
-<nav class="nav"><div class="wrap navin"><div class="brand">SARAN KABA</div><div class="links"><a href="#images">Images</a><a href="#ia">IA</a><a href="#signal">Signal</a><a href="#estimation">Estimation</a></div></div></nav>
-<header class="hero"><div class="wrap"><div class="hero-grid"><div><div class="eyebrow">Signal · Image · Apprentissage automatique</div><h1>Transformer des données en <span class="gradient">solutions mesurables.</span></h1><p>Portfolio de projets académiques en traitement d’images, intelligence artificielle, traitement du signal et modélisation statistique. Une sélection centrée sur la démarche, les algorithmes, les résultats et leur interprétation.</p><div class="chips"><span class="chip">Python</span><span class="chip">MATLAB</span><span class="chip">Deep Learning</span><span class="chip">Computer Vision</span><span class="chip">Estimation</span></div></div><div class="profile-card"><img src="photo.jpg" alt="Photo de profil de Saran Kaba"></div></div></div></header>
 
-<main>
-<section class="domain" id="images"><div class="wrap">
-<div class="domain-head reveal"><div><div class="domain-label">01 — Domaine</div><h2>Traitement d’images</h2></div><p>Segmentation, estimation de mouvement et reconstruction tomographique : quatre projets qui montrent plusieurs niveaux de traitement, de l’analyse locale des pixels jusqu’aux méthodes de reconstruction inverse.</p></div>
-
-<article class="project reveal"><div class="project-top"><div><span class="num">IMAGE / 01</span><h3>Segmentation en superpixels — SLIC</h3><p>Implémentation et étude de l’algorithme SLIC pour regrouper les pixels en régions perceptuellement cohérentes. Analyse de l’influence du nombre de superpixels K et du paramètre de compacité m, avec évaluation par Boundary Recall et ASA.</p><div class="tags"><span class="tag">SLIC</span><span class="tag">Superpixels</span><span class="tag">BSDS500</span><span class="tag">ASA</span></div></div><div class="metric"><strong>Segmentation locale</strong><span>Qualité des frontières + adhérence aux régions de référence</span></div></div><div class="gallery"><img src="slic_fleur.png" alt="Résultat SLIC sur une fleur"><img src="slic_lezard_500.png" alt="Résultat SLIC sur un lézard"><img class="full" src="slic_irm.png" alt="Résultat SLIC sur une image IRM"></div></article>
-
-<article class="project reveal"><div class="project-top"><div><span class="num">IMAGE / 02</span><h3>Block Matching — Estimation de mouvement</h3><p>Estimation du déplacement entre images successives par recherche de blocs correspondants. Le projet met en évidence le principe de mise en correspondance locale et la construction de vecteurs de mouvement.</p><div class="tags"><span class="tag">Block Matching</span><span class="tag">Mouvement</span><span class="tag">Vision</span></div></div><div class="metric"><strong>2 images → mouvement</strong><span>Correspondance de blocs entre trames</span></div></div><div class="gallery"><img src="block_f1.png" alt="Image de référence Block Matching"><img src="block_f2.png" alt="Image suivante Block Matching"></div></article>
-
-<article class="project reveal"><div class="project-top"><div><span class="num">IMAGE / 03</span><h3>Segmentation d’images couleur</h3><p>Chaîne de traitements consacrée à plusieurs problèmes : séparation ciel/nuages/soleil, détection de végétation avec un indice de type NDVI, puis détection de piscines à partir de critères colorimétriques et d’opérations morphologiques.</p><div class="tags"><span class="tag">Segmentation</span><span class="tag">NDVI</span><span class="tag">Morphologie</span><span class="tag">Couleur</span></div></div><div class="metric"><strong>3 cas d’étude</strong><span>Ciel · végétation · piscines</span></div></div><div class="gallery"><img src="ciel_original.png" alt="Image originale du ciel"><img src="masque_soleil.png" alt="Masque de détection du soleil"><img src="vegetation_satellite.png" alt="Image satellite pour la végétation"><img src="vegetation_filtre.png" alt="Détection de végétation"><img src="piscines_rouge.png" alt="Détection de piscines"><img src="segmentation_rbr.png" alt="Segmentation couleur par critère R-B"></div></article>
-
-<article class="project reveal"><div class="project-top"><div><span class="num">IMAGE / 04</span><h3>Reconstruction d’images en tomographie X</h3><p>Étude de méthodes de reconstruction CT à partir de projections : Filtered Back Projection, Compressed Sensing et approche POCS-TV avec initialisation par symétrie. Comparaison visuelle et quantitative des reconstructions.</p><div class="tags"><span class="tag">Tomographie X</span><span class="tag">FBP</span><span class="tag">Compressed Sensing</span><span class="tag">POCS-TV</span></div></div><div class="metric"><strong>CC : 0,94</strong><span>CS à 60 vues — contre 0,71 pour FBP</span><br><strong>MSE : 282,91</strong><span>CS — contre 1437,92 pour FBP</span></div></div>
-<div class="gallery"><img src="tomo_cs_vs_fbp.png" alt="Comparaison CS et FBP"><img src="tomo_pocs_tv.png" alt="Reconstruction POCS-TV"><img class="full" src="tomo_evaluation_pocs_tv.png" alt="Évaluation POCS-TV"></div><div class="caption">Visuels extraits du support de projet fourni — pages de résultats et d’évaluation.</div></article>
-</div></section>
-
-<section class="domain" id="ia"><div class="wrap"><div class="domain-head reveal"><div><div class="domain-label">02 — Domaine</div><h2>IA & Machine Learning</h2></div><p>Apprentissage profond appliqué à l’imagerie médicale.</p></div>
-<article class="project reveal"><div class="project-top"><div><span class="num">IA / 01</span><h3>Classification d’IRM cérébrales</h3><p>Classification multi-classes d’IRM cérébrales avec réseau convolutionnel et transfert d’apprentissage autour de VGG16, avec suivi de l’accuracy, de la loss et analyse par matrice de confusion.</p><div class="tags"><span class="tag">CNN</span><span class="tag">VGG16</span><span class="tag">IRM</span><span class="tag">Transfer Learning</span></div></div><div class="metric"><strong>4 classes</strong><span>Pipeline d’apprentissage et évaluation</span></div></div><div class="gallery"><img src="irm_exemples.png" alt="Exemples d'IRM cérébrales"><img src="matrice_confusion.png" alt="Matrice de confusion du modèle"><img src="courbe_accuracy.png" alt="Courbe d'accuracy"><img src="courbe_loss.png" alt="Courbe de loss"></div></article>
-</div></section>
-
-<section class="domain" id="signal"><div class="wrap"><div class="domain-head reveal"><div><div class="domain-label">03 — Domaine</div><h2>Traitement du signal</h2></div><p>Analyse et modélisation de la parole dans le domaine fréquentiel et prédictif.</p></div>
-<article class="project reveal"><div class="project-top"><div><span class="num">SIGNAL / 01</span><h3>Analyse spectrale & codage LPC de la parole</h3><p>Étude spectrale d’un signal de parole et modélisation par prédiction linéaire LPC afin de représenter efficacement l’enveloppe spectrale et les propriétés du conduit vocal.</p><div class="tags"><span class="tag">LPC</span><span class="tag">FFT</span><span class="tag">Parole</span><span class="tag">Spectre</span></div></div><div class="metric"><strong>Analyse + modèle</strong><span>Du signal temporel à la représentation prédictive</span></div></div>
-<div class="signal-lab">
-  <div class="signal-lab-top"><div><div class="signal-lab-title">Signal Lab</div><small>Visualisation interactive — temporel, spectre et LPC</small></div><span class="tag">Animation</span></div>
-  <canvas id="signalCanvas" width="1000" height="260" aria-label="Visualisation animée d'un signal"></canvas>
-  <div class="signal-actions">
-    <button class="active" data-mode="wave">Signal temporel</button>
-    <button data-mode="spectrum">Spectre</button>
-    <button data-mode="lpc">LPC</button>
-  </div>
-</div></article>
-</div></section>
-
-<section class="domain" id="estimation"><div class="wrap"><div class="domain-head reveal"><div><div class="domain-label">04 — Domaine</div><h2>Modélisation & estimation</h2></div><p>Deux projets complémentaires : estimation d’un système linéaire et estimation statistique de paramètres.</p></div>
-<article class="project reveal"><div class="project-top"><div><span class="num">ESTIMATION / 01</span><h3>Réponse impulsionnelle & moindres carrés</h3><p>Estimation de la réponse impulsionnelle d’un système linéaire à partir de mesures bruitées. Mise en forme du modèle matriciel, étude de l’estimateur et caractérisation de son biais et de sa covariance.</p><div class="formula">ŷ = Rθ &nbsp;&nbsp;·&nbsp;&nbsp; θ̂ = (RᵀR)⁻¹Rᵀy</div><div class="tags"><span class="tag">Moindres carrés</span><span class="tag">Maximum de vraisemblance</span><span class="tag">Biais</span><span class="tag">Covariance</span></div></div><div class="metric"><strong>Système linéaire</strong><span>Identification à partir de données bruitées</span></div></div></article>
-
-<article class="project reveal"><div class="project-top"><div><span class="num">ESTIMATION / 02</span><h3>Estimation des paramètres d’une loi Gamma</h3><p>Comparaison de deux stratégies pour estimer les paramètres de forme k et d’échelle θ : méthode des moments et maximum de vraisemblance. Étude de l’influence du nombre d’échantillons, puis comparaison sur 200 réalisations via biais, variance et EQM.</p><div class="tags"><span class="tag">Loi Gamma</span><span class="tag">Moments</span><span class="tag">Maximum de vraisemblance</span><span class="tag">EQM</span></div></div><div class="metric"><strong>k̂MV = 2,96</strong><span>pour k théorique = 3 (N = 100)</span><br><strong>θ̂MV = 2,0270</strong><span>pour θ théorique = 2</span></div></div>
-<div class="gallery"><img src="gamma_log_vraisemblance.png" alt="Critère de log-vraisemblance"><img src="gamma_biais_variance_eqm.png" alt="Biais variance et EQM"></div><div class="caption">Résultats extraits du compte rendu fourni : maximisation de la log-vraisemblance et caractérisation des estimateurs.</div></article>
-</div></section>
-</main>
-<footer class="footer"><div class="wrap"><b>Saran Kaba</b><br>Signal · Image · Apprentissage automatique<br><small>Ajoute ici ton email réel et tes liens GitHub / LinkedIn avant publication.</small></div></footer>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) entry.target.classList.add("visible");
-    });
-  }, {threshold: 0.10});
-  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
-  const canvas = document.getElementById("signalCanvas");
-  if (!canvas) return;
-  const ctx = canvas.getContext("2d");
-  let mode = "wave";
-  let phase = 0;
-
-  document.querySelectorAll(".signal-actions button").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".signal-actions button").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      mode = btn.dataset.mode;
-    });
-  });
-
-  function draw(){
-    const w = canvas.width, h = canvas.height;
-    ctx.clearRect(0,0,w,h);
-
-    ctx.strokeStyle = "rgba(148,163,189,.11)";
-    ctx.lineWidth = 1;
-    for(let x=0;x<w;x+=70){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke();}
-    for(let y=0;y<h;y+=52){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
-
-    ctx.beginPath();
-    ctx.lineWidth = 3;
-    ctx.strokeStyle = "#6ee7ff";
-    for(let x=0;x<w;x++){
-      const t = x/w*18;
-      let y;
-      if(mode === "wave"){
-        y = h/2 + 42*Math.sin(t*2.15+phase) + 16*Math.sin(t*7.2+phase*1.4);
-      }else if(mode === "spectrum"){
-        y = h-20 - 165*Math.abs(Math.sin(t*1.65+phase*.25))**9 - 45*Math.abs(Math.sin(t*4.4))**12;
-      }else{
-        y = h/2 + 38*Math.sin(t*1.45+phase)*Math.exp(-t/19) + 19*Math.sin(t*5.1);
-      }
-      if(x===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
-    }
-    ctx.stroke();
-    phase += .035;
-    requestAnimationFrame(draw);
-  }
-  draw();
-});
-</script>
-
-</body></html>
+.domain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:34px}.domain-card{display:block;text-decoration:none;background:linear-gradient(145deg,#ffffff,#fbf7f1);border:1px solid var(--line);border-radius:25px;overflow:hidden;transition:.35s;min-height:250px;position:relative}.domain-card:hover{transform:translateY(-6px);border-color:#4a6b9c;box-shadow:0 25px 60px #4c3b6d1d}.domain-visual{height:160px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 70% 30%,#ddd6fa,transparent 46%),linear-gradient(135deg,#f3eefb,#efe2d3);font-size:3.2rem;color:#4f3b8d}.domain-card-body{padding:22px}.domain-card h3{margin:0 0 7px;font-size:1.35rem}.domain-card p{margin:0;color:var(--muted);font-size:.92rem}.arrow{position:absolute;right:22px;bottom:20px;color:var(--a);font-size:1.5rem}.page-hero{padding:78px 0 45px;border-bottom:1px solid var(--line)}.back{display:inline-block;margin-bottom:22px;text-decoration:none;color:var(--a)}.page-hero h1{font-size:clamp(2.6rem,6vw,5.5rem);line-height:.95;margin:10px 0 18px;letter-spacing:-.05em}.projects-wrap{padding:48px 0 80px}.coming{padding:55px;text-align:center;border:1px dashed #cfc4dd;border-radius:24px;color:var(--muted)}@media(max-width:760px){.domain-grid{grid-template-columns:1fr}}
+</style></head><body><nav class="nav"><div class="wrap navin"><div class="brand"><a href="index.html" style="text-decoration:none">SARAN KABA</a></div><div class="links"><a href="index.html#domaines">Domaines</a><a href="index.html#profil">Profil</a><a href="mailto:kabasaran699@gmail.com">Contact</a></div></div></nav>
+<header class="hero" id="profil"><div class="wrap"><div class="hero-grid"><div><div class="eyebrow">Signal · Image · Apprentissage automatique</div><h1>Transformer des données en <span class="gradient">solutions mesurables.</span></h1><p>Portfolio de projets académiques en traitement d’images, intelligence artificielle, traitement du signal, reconstruction et modélisation statistique.</p><div class="chips"><span class="chip">Python</span><span class="chip">MATLAB</span><span class="chip">Deep Learning</span><span class="chip">Computer Vision</span><span class="chip">Estimation</span></div></div><div class="profile-card"><img src="photo.jpg" alt="Photo de profil de Saran Kaba"></div></div></div></header>
+<main><section class="domain" id="domaines"><div class="wrap"><div class="domain-head reveal"><div><div class="domain-label">Explorer</div><h2>Mes domaines</h2></div><p>Cliquez sur un domaine pour accéder à une page dédiée et découvrir uniquement les projets associés.</p></div><div class="domain-grid">
+<a class="domain-card reveal" href="traitement-images.html"><div class="domain-visual">◫</div><div class="domain-card-body"><h3>Traitement d’images & Computer Vision</h3><p>Segmentation, mouvement, analyse d’images couleur.</p></div><span class="arrow">→</span></a>
+<a class="domain-card reveal" href="ia-deep-learning.html"><div class="domain-visual">◉</div><div class="domain-card-body"><h3>IA & Deep Learning</h3><p>CNN, VGG16, Transfer Learning et classification d’IRM.</p></div><span class="arrow">→</span></a>
+<a class="domain-card reveal" href="traitement-signal.html"><div class="domain-visual">∿</div><div class="domain-card-body"><h3>Traitement du signal</h3><p>Analyse spectrale, FFT et modélisation LPC.</p></div><span class="arrow">→</span></a>
+<a class="domain-card reveal" href="estimation-reconstruction.html"><div class="domain-visual">Σ</div><div class="domain-card-body"><h3>Modélisation, estimation & reconstruction</h3><p>Tomographie, moindres carrés et estimation statistique.</p></div><span class="arrow">→</span></a>
+<a class="domain-card reveal" href="3d-spatial.html"><div class="domain-visual">◇</div><div class="domain-card-body"><h3>3D & données spatiales</h3><p>Nuages de points, maillages, segmentation et projection 3D/2D.</p></div><span class="arrow">→</span></a>
+</div></div></section></main><footer class="footer"><div class="wrap"><b>Saran Kaba</b><br>Signal · Image · Apprentissage automatique<br><small>Stage M2 — disponible à partir de mars 2027</small></div></footer><script>document.addEventListener('DOMContentLoaded',()=>{const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});document.querySelectorAll('.reveal').forEach(e=>o.observe(e));});</script></body></html>
