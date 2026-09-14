@@ -57,12 +57,98 @@ footer{padding:42px 0;background:#fff;border-top:1px solid var(--line);color:var
 @media(max-width:900px){.hero-grid,.projects-grid,.domain-grid{grid-template-columns:1fr 1fr}.hero-grid{grid-template-columns:1fr}.project-detail,.project-detail:nth-child(even){grid-template-columns:1fr}.project-detail:nth-child(even) .detail-media{order:0}.links{display:none}}
 @media(max-width:620px){.projects-grid,.domain-grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:12px}}
 
-.detail-text h4{margin:18px 0 7px;color:#40375e;font-size:1rem}.detail-text .formula{margin:15px 0;padding:13px 15px;background:#f7f4ff;border:1px solid #ddd4fb;border-radius:12px;font-family:Georgia,serif;color:#3f336d}.signal-canvas{width:100%;height:100%;display:block;background:linear-gradient(180deg,#fff,#f8f5ff)}
-</style></head><body><nav class="nav"><div class="wrap nav-inner"><div class="brand">SARAN KABA<small>Signal · Image · IA</small></div><div class="links"><a href="index.html">Accueil</a><a href="index.html#domaines">Domaines</a><a href="mailto:kabasaran699@gmail.com">Contact</a></div></div></nav><header class="hero"><div class="wrap hero-grid"><div class="reveal"><div class="eyebrow">Domaine</div><h1>3D & données spatiales</h1><p>Nuages de points, maillages, segmentation et projections 3D/2D.</p><a class="btn" href="index.html">← Retour à l'accueil</a></div><div class="hero-visual reveal"><svg class="svg" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"><rect width="800" height="420" fill="#fbfaf8"/><g stroke="#d7cfee"><path d="M100 330L400 120L700 330"/><path d="M100 330L400 390L700 330"/><path d="M400 120V390"/></g><g fill="#5b49a6"><circle cx="235" cy="265" r="8"/><circle cx="280" cy="220" r="6"/><circle cx="325" cy="285" r="7"/><circle cx="355" cy="195" r="9"/><circle cx="395" cy="250" r="6"/><circle cx="425" cy="178" r="7"/><circle cx="460" cy="270" r="9"/><circle cx="510" cy="225" r="6"/><circle cx="555" cy="290" r="8"/></g><text x="455" y="90" fill="#5b49a6" font-size="28">Nuages de points · maillages</text></svg></div></div></header><section class="section"><div class="wrap"><div class="section-head reveal"><div><div class="eyebrow">Mes projets</div><h2>Travaux 3D</h2></div></div><div class="projects-grid"><a class="project-card reveal" href="#3d"><div class="card-media"><svg class="svg" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"><rect width="800" height="420" fill="#fbfaf8"/><g stroke="#d7cfee"><path d="M100 330L400 120L700 330"/><path d="M100 330L400 390L700 330"/><path d="M400 120V390"/></g><g fill="#5b49a6"><circle cx="235" cy="265" r="8"/><circle cx="280" cy="220" r="6"/><circle cx="325" cy="285" r="7"/><circle cx="355" cy="195" r="9"/><circle cx="395" cy="250" r="6"/><circle cx="425" cy="178" r="7"/><circle cx="460" cy="270" r="9"/><circle cx="510" cy="225" r="6"/><circle cx="555" cy="290" r="8"/></g><text x="455" y="90" fill="#5b49a6" font-size="28">Nuages de points · maillages</text></svg></div><div class="card-body"><span class="tag">En cours</span><h3>Nuages de points & maillages</h3><p>Travaux en cours sur les données spatiales.</p><span class="open">Voir le projet ↓</span></div></a></div></div></section><section class="section alt"><div class="wrap"><div class="details"><article class="project-detail reveal" id="3d"><div class="detail-media"><svg class="svg" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"><rect width="800" height="420" fill="#fbfaf8"/><g stroke="#d7cfee"><path d="M100 330L400 120L700 330"/><path d="M100 330L400 390L700 330"/><path d="M400 120V390"/></g><g fill="#5b49a6"><circle cx="235" cy="265" r="8"/><circle cx="280" cy="220" r="6"/><circle cx="325" cy="285" r="7"/><circle cx="355" cy="195" r="9"/><circle cx="395" cy="250" r="6"/><circle cx="425" cy="178" r="7"/><circle cx="460" cy="270" r="9"/><circle cx="510" cy="225" r="6"/><circle cx="555" cy="290" r="8"/></g><text x="455" y="90" fill="#5b49a6" font-size="28">Nuages de points · maillages</text></svg></div><div class="detail-text"><span class="tag">En cours</span><h3>Nuages de points, maillages et projection 3D/2D</h3><p>Travaux en cours autour de la manipulation de nuages de points, des maillages, de la segmentation et des projections 3D vers 2D. La section est volontairement indiquée comme en cours pour ne pas inventer de résultats.</p><div class="metrics"><span class="metric">Nuages de points</span><span class="metric">Maillages</span><span class="metric">Projection 3D/2D</span></div><div class="tech">Projet en cours</div></div></article></div></div></section><footer><div class="wrap"><strong style="color:#211642">Saran KABA</strong> — Master 2 Signal, Image & Apprentissage Automatique</div></footer>
+.detail-text h4{margin:18px 0 7px;color:#40375e;font-size:1rem}.detail-text .formula{margin:15px 0;padding:13px 15px;background:#f7f4ff;border:1px solid #ddd4fb;border-radius:12px;font-family:Georgia,serif;color:#3f336d}.signal-canvas,.three-d-canvas{width:100%;height:100%;display:block;background:linear-gradient(180deg,#fff,#f8f5ff)}
+</style></head><body><nav class="nav"><div class="wrap nav-inner"><div class="brand">SARAN KABA<small>Signal · Image · IA</small></div><div class="links"><a href="index.html">Accueil</a><a href="index.html#domaines">Domaines</a><a href="mailto:kabasaran699@gmail.com">Contact</a></div></div></nav><header class="hero"><div class="wrap hero-grid"><div class="reveal"><div class="eyebrow">Domaine</div><h1>3D & données spatiales</h1><p>Nuages de points, maillages, segmentation et projections 3D/2D.</p><a class="btn" href="index.html">← Retour à l'accueil</a></div><div class="hero-visual reveal"><canvas class="three-d-canvas" aria-label="Nuage de points 3D animé"></canvas></div></div></header><section class="section"><div class="wrap"><div class="section-head reveal"><div><div class="eyebrow">Mes projets</div><h2>Travaux 3D</h2></div></div><div class="projects-grid"><a class="project-card reveal" href="#3d"><div class="card-media"><canvas class="three-d-canvas" aria-label="Nuage de points 3D animé"></canvas></div><div class="card-body"><span class="tag">En cours</span><h3>Nuages de points & maillages</h3><p>Travaux en cours sur les données spatiales.</p><span class="open">Voir le projet ↓</span></div></a></div></div></section><section class="section alt"><div class="wrap"><div class="details"><article class="project-detail reveal" id="3d"><div class="detail-media"><canvas class="three-d-canvas" aria-label="Nuage de points 3D animé"></canvas></div><div class="detail-text"><span class="tag">En cours</span><h3>Nuages de points, maillages et projection 3D/2D</h3><p>Travaux en cours autour de la manipulation de nuages de points, des maillages, de la segmentation et des projections 3D vers 2D. La section est volontairement indiquée comme en cours pour ne pas inventer de résultats.</p><div class="metrics"><span class="metric">Nuages de points</span><span class="metric">Maillages</span><span class="metric">Projection 3D/2D</span></div><div class="tech">Projet en cours</div></div></article></div></div></section><footer><div class="wrap"><strong style="color:#211642">Saran KABA</strong> — Master 2 Signal, Image & Apprentissage Automatique</div></footer>
 <script>
 document.addEventListener("DOMContentLoaded",()=>{
  const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.1});
  document.querySelectorAll(".reveal").forEach(el=>o.observe(el));
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  document.querySelectorAll("canvas.three-d-canvas").forEach((canvas,idx)=>{
+    const ctx=canvas.getContext("2d");
+    let angle=idx*.35;
+    const pts=[];
+    // deterministic 3D point cloud shaped like a wave/surface
+    for(let ix=-6; ix<=6; ix++){
+      for(let iz=-5; iz<=5; iz++){
+        const x=ix*24;
+        const z=iz*24;
+        const y=28*Math.sin(ix*.65)*Math.cos(iz*.55);
+        pts.push({x,y,z});
+      }
+    }
+    function resize(){
+      const r=canvas.getBoundingClientRect();
+      const dpr=Math.max(1,window.devicePixelRatio||1);
+      canvas.width=Math.max(1,Math.floor(r.width*dpr));
+      canvas.height=Math.max(1,Math.floor(r.height*dpr));
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+    }
+    resize();
+    window.addEventListener("resize",resize);
+
+    function project(p,w,h){
+      const ca=Math.cos(angle), sa=Math.sin(angle);
+      const x=p.x*ca - p.z*sa;
+      const z=p.x*sa + p.z*ca;
+      const y=p.y;
+      const perspective=420/(420+z);
+      return {
+        x:w/2 + x*perspective,
+        y:h/2 + y*perspective,
+        z,
+        s:perspective
+      };
+    }
+
+    function draw(){
+      const w=canvas.clientWidth,h=canvas.clientHeight;
+      ctx.clearRect(0,0,w,h);
+
+      // soft grid
+      ctx.strokeStyle="rgba(91,73,166,.10)";
+      ctx.lineWidth=1;
+      for(let y=35;y<h;y+=35){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
+      for(let x=45;x<w;x+=45){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke();}
+
+      const projected=pts.map(p=>project(p,w,h)).sort((a,b)=>a.z-b.z);
+
+      // mesh connections
+      ctx.strokeStyle="rgba(138,120,204,.20)";
+      ctx.lineWidth=1;
+      for(let iz=0; iz<11; iz++){
+        ctx.beginPath();
+        for(let ix=0; ix<13; ix++){
+          const p=project(pts[ix*11+iz],w,h);
+          if(ix===0) ctx.moveTo(p.x,p.y); else ctx.lineTo(p.x,p.y);
+        }
+        ctx.stroke();
+      }
+
+      projected.forEach(p=>{
+        const r=Math.max(2.2,4.4*p.s);
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,r,0,Math.PI*2);
+        ctx.fillStyle=p.z>0 ? "#5b49a6" : "#8a78cc";
+        ctx.globalAlpha=.55+.4*Math.min(1,p.s);
+        ctx.fill();
+      });
+      ctx.globalAlpha=1;
+
+      // labels
+      ctx.fillStyle="#5b49a6";
+      ctx.font="700 15px Arial";
+      ctx.fillText("Nuage de points 3D — rotation interactive",18,28);
+
+      angle += .006;
+      requestAnimationFrame(draw);
+    }
+    draw();
+  });
 });
 </script>
 </body></html>

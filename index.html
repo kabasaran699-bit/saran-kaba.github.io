@@ -57,7 +57,7 @@ footer{padding:42px 0;background:#fff;border-top:1px solid var(--line);color:var
 @media(max-width:900px){.hero-grid,.projects-grid,.domain-grid{grid-template-columns:1fr 1fr}.hero-grid{grid-template-columns:1fr}.project-detail,.project-detail:nth-child(even){grid-template-columns:1fr}.project-detail:nth-child(even) .detail-media{order:0}.links{display:none}}
 @media(max-width:620px){.projects-grid,.domain-grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:12px}}
 
-.detail-text h4{margin:18px 0 7px;color:#40375e;font-size:1rem}.detail-text .formula{margin:15px 0;padding:13px 15px;background:#f7f4ff;border:1px solid #ddd4fb;border-radius:12px;font-family:Georgia,serif;color:#3f336d}.signal-canvas{width:100%;height:100%;display:block;background:linear-gradient(180deg,#fff,#f8f5ff)}
+.detail-text h4{margin:18px 0 7px;color:#40375e;font-size:1rem}.detail-text .formula{margin:15px 0;padding:13px 15px;background:#f7f4ff;border:1px solid #ddd4fb;border-radius:12px;font-family:Georgia,serif;color:#3f336d}.signal-canvas,.three-d-canvas{width:100%;height:100%;display:block;background:linear-gradient(180deg,#fff,#f8f5ff)}
 </style></head><body><nav class="nav"><div class="wrap nav-inner"><div class="brand">SARAN KABA<small>Signal · Image · IA</small></div><div class="links"><a href="index.html">Accueil</a><a href="index.html#domaines">Domaines</a><a href="mailto:kabasaran699@gmail.com">Contact</a></div></div></nav>
 <header class="hero"><div class="wrap hero-grid"><div class="reveal"><div class="eyebrow">Portfolio · Signal · Image · IA</div><h1>De la théorie à <span style="color:#5b49a6">l'impact.</span></h1><p>Explore mes projets par domaine. Chaque carte ouvre une page dédiée, puis chaque projet peut être ouvert pour voir ses détails.</p><a class="btn primary" href="#domaines">Voir les domaines ↓</a></div><div class="hero-visual reveal"><canvas class="signal-canvas" aria-label="Animation de signal"></canvas></div></div></header>
 <section class="section alt" id="domaines"><div class="wrap"><div class="section-head reveal"><div><div class="eyebrow">Domaines</div><h2>Mes domaines d'expertise</h2></div><p>Les pages ci-dessous contiennent maintenant de vrais projets visibles et cliquables.</p></div><div class="domain-grid">
@@ -65,7 +65,7 @@ footer{padding:42px 0;background:#fff;border-top:1px solid var(--line);color:var
 <a class="domain-card reveal" href="ia-deep-learning.html"><div class="media"><img src="irm_exemples.png" onerror="this.style.display='none'"></div><div class="meta"><h3>IA & Deep Learning</h3><p>Classification d'IRM, CNN, VGG16.</p><span class="arrow">Voir les projets →</span></div></a>
 <a class="domain-card reveal" href="traitement-signal.html"><div class="media"><canvas class="signal-canvas" aria-label="Animation de signal"></canvas></div><div class="meta"><h3>Traitement du signal</h3><p>FFT, spectrogrammes, LPC et autocorrélation.</p><span class="arrow">Voir les projets →</span></div></a>
 <a class="domain-card reveal" href="estimation-reconstruction.html"><div class="media"><img src="tomo_cs_vs_fbp.png" onerror="this.style.display='none'"></div><div class="meta"><h3>Modélisation, estimation & reconstruction</h3><p>Tomographie, LS/ML et estimation Gamma.</p><span class="arrow">Voir les projets →</span></div></a>
-<a class="domain-card reveal" href="3d-spatial.html"><div class="media"><canvas class="signal-canvas" aria-label="Animation de signal"></canvas></div><div class="meta"><h3>3D & données spatiales</h3><p>Nuages de points, maillages, projection 3D/2D.</p><span class="arrow">Voir les projets →</span></div></a>
+<a class="domain-card reveal" href="3d-spatial.html"><div class="media"><canvas class="three-d-canvas" aria-label="Animation d’un nuage de points 3D"></canvas></div><div class="meta"><h3>3D & données spatiales</h3><p>Nuages de points, maillages, projection 3D/2D.</p><span class="arrow">Voir les projets →</span></div></a>
 </div></div></section><footer><div class="wrap"><strong style="color:#211642">Saran KABA</strong> — Master 2 Signal, Image & Apprentissage Automatique</div></footer>
 <script>
 document.addEventListener("DOMContentLoaded",()=>{
@@ -82,4 +82,90 @@ document.addEventListener("DOMContentLoaded",()=>{
   function draw(){const w=c.clientWidth,h=c.clientHeight;x.clearRect(0,0,w,h);x.strokeStyle="rgba(91,73,166,.12)";x.lineWidth=1;for(let y=35;y<h;y+=35){x.beginPath();x.moveTo(0,y);x.lineTo(w,y);x.stroke()}x.beginPath();for(let px=0;px<w;px++){let py=h*.5+Math.sin(px*.035+t)*42+Math.sin(px*.012+t*.55)*17;px?x.lineTo(px,py):x.moveTo(px,py)}x.strokeStyle="#5b49a6";x.lineWidth=4;x.stroke();x.beginPath();for(let px=0;px<w;px++){let e=Math.exp(-Math.pow((px-w*.6)/(w*.22),2));let py=h*.76+Math.sin(px*.09-t*1.5)*e*23;px?x.lineTo(px,py):x.moveTo(px,py)}x.strokeStyle="#8a78cc";x.lineWidth=2.3;x.stroke();t+=.045;requestAnimationFrame(draw)}draw();
  });
 });
-</script></body></html>
+</script>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  document.querySelectorAll("canvas.three-d-canvas").forEach((canvas,idx)=>{
+    const ctx=canvas.getContext("2d");
+    let angle=idx*.35;
+    const pts=[];
+    // deterministic 3D point cloud shaped like a wave/surface
+    for(let ix=-6; ix<=6; ix++){
+      for(let iz=-5; iz<=5; iz++){
+        const x=ix*24;
+        const z=iz*24;
+        const y=28*Math.sin(ix*.65)*Math.cos(iz*.55);
+        pts.push({x,y,z});
+      }
+    }
+    function resize(){
+      const r=canvas.getBoundingClientRect();
+      const dpr=Math.max(1,window.devicePixelRatio||1);
+      canvas.width=Math.max(1,Math.floor(r.width*dpr));
+      canvas.height=Math.max(1,Math.floor(r.height*dpr));
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+    }
+    resize();
+    window.addEventListener("resize",resize);
+
+    function project(p,w,h){
+      const ca=Math.cos(angle), sa=Math.sin(angle);
+      const x=p.x*ca - p.z*sa;
+      const z=p.x*sa + p.z*ca;
+      const y=p.y;
+      const perspective=420/(420+z);
+      return {
+        x:w/2 + x*perspective,
+        y:h/2 + y*perspective,
+        z,
+        s:perspective
+      };
+    }
+
+    function draw(){
+      const w=canvas.clientWidth,h=canvas.clientHeight;
+      ctx.clearRect(0,0,w,h);
+
+      // soft grid
+      ctx.strokeStyle="rgba(91,73,166,.10)";
+      ctx.lineWidth=1;
+      for(let y=35;y<h;y+=35){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
+      for(let x=45;x<w;x+=45){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke();}
+
+      const projected=pts.map(p=>project(p,w,h)).sort((a,b)=>a.z-b.z);
+
+      // mesh connections
+      ctx.strokeStyle="rgba(138,120,204,.20)";
+      ctx.lineWidth=1;
+      for(let iz=0; iz<11; iz++){
+        ctx.beginPath();
+        for(let ix=0; ix<13; ix++){
+          const p=project(pts[ix*11+iz],w,h);
+          if(ix===0) ctx.moveTo(p.x,p.y); else ctx.lineTo(p.x,p.y);
+        }
+        ctx.stroke();
+      }
+
+      projected.forEach(p=>{
+        const r=Math.max(2.2,4.4*p.s);
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,r,0,Math.PI*2);
+        ctx.fillStyle=p.z>0 ? "#5b49a6" : "#8a78cc";
+        ctx.globalAlpha=.55+.4*Math.min(1,p.s);
+        ctx.fill();
+      });
+      ctx.globalAlpha=1;
+
+      // labels
+      ctx.fillStyle="#5b49a6";
+      ctx.font="700 15px Arial";
+      ctx.fillText("Nuage de points 3D — rotation interactive",18,28);
+
+      angle += .006;
+      requestAnimationFrame(draw);
+    }
+    draw();
+  });
+});
+</script>
+</body></html>
